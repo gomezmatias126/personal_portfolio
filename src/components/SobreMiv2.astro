@@ -3,10 +3,10 @@ import foto from "/img/foto_monte.avif";
 ---
 
 <div
-  class="container min-h-screen max-h-[1400px] sm:py-28 py-16 relative grid place-items-center"
+  class="container container_sobre_mi min-h-screen max-h-[1400px] sm:py-28 pt-16 relative grid place-items-center"
 >
   <div
-    class="caja_principal dark:before:bg-light-dark before:bg-dark relative z-20 w-full lg:h-auto h-fit flex lg:flex-row flex-col lg:items-center"
+    class="caja_principal sm:pb-0 pb-8 dark:before:bg-light-dark before:bg-dark relative z-20 w-full lg:h-auto h-fit flex lg:flex-row flex-col lg:items-center"
   >
     <div
       class="caja_foto overflow-hidden lg:w-6/12 w-full relative z-20 before:border-grey after:border-grey "
@@ -40,7 +40,7 @@ import foto from "/img/foto_monte.avif";
       </p>
       <a
         href="#banner_trabajos"
-        class="md:text-xl sm:text-lg text-base gap-1 items-center w-fit text-dark dark:text-light dark:bg-dark bg-light px-8 py-4 md:px-12 lg:px-14 xl:px-14 sm:border-none border border-dark"
+        class="lg:text-xl md:text-lg sm:text-base text-sm gap-1 items-center w-fit text-dark dark:text-light dark:bg-dark bg-light px-6 py-2 md:px-12 lg:px-14 xl:px-14 sm:border-none border border-dark"
         >Mis Proyectos
       </a>
     </div>
@@ -56,6 +56,12 @@ import foto from "/img/foto_monte.avif";
     left: 0%;
     top: 0%;
     z-index: 17;
+  }
+  @media screen and (width <= 768px) {
+    .container_sobre_mi{
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
   }
   /* .caja_foto::before {
     content: "";

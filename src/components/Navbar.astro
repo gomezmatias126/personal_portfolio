@@ -35,9 +35,9 @@ let barrita = "/";
         id="item_navbar_links"
         class="lista_item_navbar md:flex hidden md:bg-transparent dark:md:bg-transparent dark:bg-dark bg-light md:flex-row justify-center absolute z-30 md:static md:w-auto top-0 md:h-auto h-screen left-0 w-full flex-col items-center gap-10 md:text-base text-4xl capitalize transition-all font-normal dark:text-light text-dark-light [&>a]:font-light [&>a]:py-2 [&>a]:px-4 [&>a]:md:text-black "
       >
-        <a href="/proyectos" class="">proyectos</a>
-        <a href="/sobre_mi" class="">sobre mi</a>
-        <a href="/contacto" class="">contacto</a>
+        <a href="#proyectos" class="">proyectos</a>
+        <a href="#sobre_mi" class="">sobre mi</a>
+        <a href="#contacto" class="">contacto</a>
         <input
           aria-hidden="true"
           type="checkbox"
@@ -91,7 +91,7 @@ let barrita = "/";
   </nav>
 </header>
 
-<script>
+<script async>
   const btn_toggle_navbar = document.getElementById("btn_toggle_navbar");
   const item_navbar_links = document.getElementById("item_navbar_links");
   const btn_toggle_navbar_svg_close = document.getElementById(
@@ -145,10 +145,12 @@ let barrita = "/";
     if (btn_toggle_navbar_svg_close.classList.contains("hidden") === false)
       return;
     if (window.scrollY >= 100) {
-      header_navbar.classList.add("bg-dark");
+      header_navbar.classList.add("dark:bg-dark");
+      header_navbar.classList.add("bg-light");
     } else {
       if (item_navbar_links.classList.contains("hidden") !== false) {
-        header_navbar.classList.remove("bg-dark");
+        header_navbar.classList.remove("dark:bg-dark");
+        header_navbar.classList.remove("bg-light");
       }
     }
     if (prevScrollpos > currentScrollPos) {
