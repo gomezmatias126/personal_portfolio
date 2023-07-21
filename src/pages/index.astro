@@ -1,30 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Sobre_mi from "../components/SobreMi.astro";
+import Sobre_mi from "../components/SobreMiv2.astro";
 import MisHabilidades from "../components/MisHabilidades.astro";
 import Contacto from "../components/Contacto.astro";
 ---
 
 <Layout
-	title="Uncoder Diseño Web"
-	mostrarFooterContacto={true}
-	textoBotonContactoFooter="Si no, vea mis trabajos"
-	linkBotonContactoFooter="/trabajos"
+  title="Uncoder Diseño Web"
+  mostrarFooterContacto={true}
+  textoBotonContactoFooter="Si no, vea mis trabajos"
+  linkBotonContactoFooter="/trabajos"
 >
-	<main class="main relative z-40 snap-y snap-proximity overflow-auto overflow-x-hidden w-screen h-screen">
-		<section id="hero" class="relative z-40 snap-start">
-			<Hero />
-		</section>
-		<section id="sobre_mi" class="snap-start">
-			<Sobre_mi />
-		</section>
-		<section id="mis_habilidades" class="snap-start">
-			<MisHabilidades />
-		</section>
-		<section id="contacto" class="snap-start">
-			<Contacto />
-		</section>
-	</main>
-
+  <main class="main relative z-40">
+    <section id="hero" class="xl:snap-center scroll-p-48">
+      <Hero />
+    </section>
+    <section id="sobre_mi" class="xl:snap-center scroll-p-48">
+      <Sobre_mi />
+    </section>
+    <section id="mis_habilidades" class="xl:snap-center scroll-p-48">
+      <MisHabilidades />
+    </section>
+    <section id="contacto" class="xl:snap-center scroll-p-48">
+      <Contacto />
+    </section>
+  </main>
 </Layout>
+
+<script>
+
+</script>

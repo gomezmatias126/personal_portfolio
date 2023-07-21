@@ -1,0 +1,80 @@
+---
+import foto from "/img/foto_monte.avif";
+---
+
+<div
+  class="container min-h-screen max-h-[1400px] sm:py-28 py-16 relative grid place-items-center"
+>
+  <div
+    class="caja_principal dark:before:bg-light-dark before:bg-dark relative z-20 w-full lg:h-auto h-fit flex lg:flex-row flex-col lg:items-center"
+  >
+    <div
+      class="caja_foto overflow-hidden lg:w-6/12 w-full relative z-20 before:border-grey after:border-grey "
+    >
+      <img
+        class="w-full xl:aspect-[16/18] lg:aspect-[16/24] aspect-[10/8] object-cover"
+        src={foto}
+        alt="Foto de Matias Gomez"
+      />
+    </div>
+    <div
+      class="lg:w-6/12 relative lg:px-10 md:px-8 sm:px-6 px-4 lg:py-0 md:py-9 sm:py-7 py-5 z-20 h-auto flex items-start flex-col xl:gap-10 sm:gap-8 gap-5 [&>p]:dark:text-dark-light [&>p]:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm [&>p]:font-light"
+    >
+      <h2
+        class="titulo 2xl:text-8xl xl:text-6xl lg:text-5xl sm:text-4xl text-3xl font-bold text-center dark:text-dark text-light relative z-20 leading-none"
+      >
+        Holaaa...
+      </h2>
+      <p>
+        Soy Matías, un estudiante autodidacta que acaba de comenzar en este
+        hermoso ambiente del diseño web. Ya que en la programación llevo varios
+        años, mis primeros lenguajes fueron C y C++, los cuales aprendí cuando
+        comencé la secundaria y tenía que manejar pequeñas placas electrónicas
+        como Arduinos y PIC's.
+      </p>
+      <p>
+        Actualmente me encuentro estudiando para convertirme en Desarrollador de
+        Software en el futuro. Mi experiencia incluye el diseño de páginas web
+        simples, creando prototipos en Figma y luego llevándolos a código, y
+        hasta hace poco, empecé a utilizar Wordpress.
+      </p>
+      <a
+        href="#banner_trabajos"
+        class="md:text-xl sm:text-lg text-base gap-1 items-center w-fit text-dark dark:text-light dark:bg-dark bg-light px-8 py-4 md:px-12 lg:px-14 xl:px-14 sm:border-none border border-dark"
+        >Mis Proyectos
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .caja_principal::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    z-index: 17;
+  }
+  /* .caja_foto::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    left: -3%;
+    top: -3%;
+    z-index: 25;
+  }
+  .caja_foto::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    left: 3%;
+    top: 3%;
+    z-index: 30;
+  } */
+</style>
