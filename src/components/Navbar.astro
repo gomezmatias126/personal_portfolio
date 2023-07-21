@@ -1,0 +1,206 @@
+---
+const nav_item = [" mis trabajos", "sobre mi"];
+let barrita = "/";
+---
+
+<header
+  id="header_navbar"
+  class="header_navbar w-full h-20 flex items-center justify-center fixed z-50 top-0 transition-all"
+>
+  <nav class="container static">
+    <ul
+      class="flex flex-row items-center [&>div>a]:text-base justify-between static"
+    >
+      <li class=" relative z-40">
+        <a
+          href="/"
+          class="font-normal leading-3 text-black sm:text-2xl text-xl"
+          aria-hidden="true"
+          ><svg
+            class="[&>path]:dark:fill-light [&>path]:fill-dark"
+            width="51"
+            height="51"
+            viewBox="0 0 51 51"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.0636418 25.5404L0.0674692 0.258453L8.50181 17.1074L16.9362 33.9564L8.49799 42.3894L0.0598145 50.8224L0.0636418 25.5404Z"></path>
+            <path
+              d="M21.2784 42.3608L17.0967 34.0022L33.8213 17.2877C43.0198 8.09478 50.5566 0.584025 50.5697 0.597155C50.6004 0.627814 25.5406 50.7194 25.4946 50.7194C25.4756 50.7194 23.5783 46.958 21.2784 42.3608Z"></path>
+          </svg>
+        </a>
+      </li>
+      <li
+        id="item_navbar_links"
+        class="lista_item_navbar md:flex hidden md:bg-transparent dark:md:bg-transparent dark:bg-dark bg-light md:flex-row justify-center absolute z-30 md:static md:w-auto top-0 md:h-auto h-screen left-0 w-full flex-col items-center gap-10 md:text-base text-4xl capitalize transition-all font-normal dark:text-light text-dark-light [&>a]:font-light [&>a]:py-2 [&>a]:px-4 [&>a]:md:text-black "
+      >
+        <a href="/proyectos" class="">proyectos</a>
+        <a href="/sobre_mi" class="">sobre mi</a>
+        <a href="/contacto" class="">contacto</a>
+        <input
+          aria-hidden="true"
+          type="checkbox"
+          id="switch"
+          class="[&+label]:checked:bg-dark-light"
+        /><label
+          for="switch"
+          aria-hidden="true"
+          class="h-8 aspect-video rounded-full after:h-6 after:w-6 after:rounded-3xl after:bg-light bg-grey"
+          >Toggle</label
+        >
+      </li>
+      <li class="md:hidden visible h-auto flex">
+        <button
+          id="btn_toggle_navbar"
+          class="md:hidden visible relative z-40"
+          aria-roledescription="Boton para Abrir Menu de Navegación"
+          name="Boton para Abrir Menu de Navegación"
+        >
+          <div id="btn_toggle_navbar_svg_close" class="btn_toggle_navbar_svg_close hidden">
+            <svg
+              class="dark:fill-light-dark fill-dark-light"
+              width="41"
+              height="41"
+              viewBox="0 0 41 41"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M35.9996 0.5L20.9961 15.5L5.99609 0.5L0.996094 5.5L15.9961 20.5L0.996094 35.5L5.99609 40.5L20.9961 25.5L35.9996 40.5L40.9996 35.5L25.9996 20.5L40.9996 5.5L35.9996 0.5Z"
+              ></path>
+            </svg>
+          </div>
+          <div id="btn_toggle_navbar_svg_open" class="btn_toggle_navbar_svg_open visible">
+            <svg
+              class="fill-dark-light dark:fill-light-dark"
+              width="40"
+              height="21"
+              viewBox="0 0 40 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0H40V3H0V0Z"></path>
+              <path d="M20 9H40V12H20V9Z"></path>
+              <path d="M10 18H40V21H10V18Z"></path>
+            </svg>
+          </div>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const btn_toggle_navbar = document.getElementById("btn_toggle_navbar");
+  const item_navbar_links = document.getElementById("item_navbar_links");
+  const btn_toggle_navbar_svg_close = document.getElementById(
+    "btn_toggle_navbar_svg_close"
+  );
+  const btn_toggle_navbar_svg_open = document.getElementById(
+    "btn_toggle_navbar_svg_open"
+  );
+  const header_navbar = document.getElementById("header_navbar");
+  let prevScrollpos = window.scrollY;
+
+  let darkModeEnabled = false;
+
+  let switch_mode = document.getElementById("switch");
+
+  switch_mode.addEventListener("click", () => setDarkMode(!darkModeEnabled));
+
+  function useDarkMode() {
+    const colorScheme = window.localStorage.getItem("colorScheme");
+    if (colorScheme) {
+      return colorScheme === "dark";
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  function setDarkMode(enabled = false) {
+    darkModeEnabled = enabled;
+    document.documentElement.classList.toggle("dark", enabled);
+    window.localStorage.setItem("colorScheme", enabled ? "dark" : "light");
+    switch_mode.checked = enabled ? true : false;
+  }
+
+  setDarkMode(useDarkMode());
+
+  function toggleMenu() {
+    btn_toggle_navbar_svg_close.classList.toggle("hidden");
+    btn_toggle_navbar_svg_open.classList.toggle("hidden");
+    item_navbar_links.classList.toggle("hidden");
+    item_navbar_links.classList.toggle("flex");
+    if (item_navbar_links.classList.contains("hidden") === false) {
+      item_navbar_links.addEventListener("click", toggleMenu);
+    } else {
+      item_navbar_links.removeEventListener("click", toggleMenu);
+    }
+  }
+  btn_toggle_navbar.addEventListener("click", toggleMenu);
+
+  window.onscroll = function () {
+    let currentScrollPos = window.scrollY;
+    if (btn_toggle_navbar_svg_close.classList.contains("hidden") === false)
+      return;
+    if (window.scrollY >= 100) {
+      header_navbar.classList.add("bg-dark");
+    } else {
+      if (item_navbar_links.classList.contains("hidden") !== false) {
+        header_navbar.classList.remove("bg-dark");
+      }
+    }
+    if (prevScrollpos > currentScrollPos) {
+      header_navbar.style.top = "0";
+    } else {
+      header_navbar.style.top = "-5rem";
+    }
+    prevScrollpos = currentScrollPos;
+  };
+</script>
+
+<style>
+  input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    display: block;
+    position: relative;
+  }
+
+  label:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  @media (max-width: 768px) {
+    .lista_item_navbar {
+      height: calc(100vh - 5rem);
+    }
+  }
+  .btn_animacion {
+    transition: scale 750ms, background-color 1000ms, color 1000ms,
+      font-weight 500ms;
+    will-change: scale, background-color, color, font-weight;
+  }
+
+  .btn_animacion:hover,
+  .btn_animacion:focus {
+    font-weight: normal;
+    color: #fcfeff;
+    scale: 1.04;
+  }
+</style>

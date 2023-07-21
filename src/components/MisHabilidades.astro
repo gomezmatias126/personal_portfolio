@@ -1,0 +1,81 @@
+---
+// let images = await import.meta.glob("../../public/img/iconos/*.svg", { as: 'url'});
+import wordpress from "../img/iconos/wordpress.svg";
+import woocommerce from "../img/iconos/woocommerce.svg";
+let nombres_tecnologias = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Figma",
+  "Astro JS",
+  "Tailwind CSS",
+  "MySQL",
+  "Git",
+];
+let images = await import.meta.glob("/public/img/iconos/*_icon.svg", {
+  as: "url",
+});
+let urls = Object.keys(images);
+let url_images = urls.map((e) => {
+  return e.split("/public").join("");
+});
+---
+
+<div
+  class="container min-h-screen max-h-[2500px] relative grid place-items-center py-32"
+>
+  <article
+    class="w-full h-fit flex items-center flex-col md:gap-14 gap-10 [&>p]:text-dark-light [&>p]:dark:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm"
+  >
+    <div>
+      <h2
+        class="2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold text-center text-dark dark:text-light relative z-20"
+      >
+        Mis Habilidades
+      </h2>
+      <p class="text-center text-dark-light dark:text-light-dark mt-7">
+        Herramientas y Tecnologias que domino, y algunas que estoy aprendiendo.
+      </p>
+    </div>
+    <div
+      class="flex md:flex-row flex-col sm:gap-14 gap-12 [&>*>*>img]:h-20 [&>*>*>img]:w-auto [&>*>*>img]:dark:brightness-0 [&>*>*>img]:dark:invert [&>*>*>img]:justify-self-center [&>*>*>img]:dark:opacity-80"
+    >
+      <div
+        class="grid sm:grid-cols-4 grid-cols-2 md:gap-14 sm:gap-10 gap-y-10 gap-x-8 items-center justify-center"
+      >
+        {
+          url_images.map((image) => (
+            <figure class="flex flex-col items-center">
+              <img src={image} alt="" class="" />
+              <figcaption class="dark:text-light-dark text-dark-light text-center mt-4">
+                {nombres_tecnologias[url_images.indexOf(image)]}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+      <span
+        aria-hidden="true"
+        class="md:w-[0.1px] h-auto border border-dashed dark:border-grey border-dark-light opacity-60"
+      ></span>
+      <div class="flex md:flex-col md:justify-between justify-center gap-14">
+        <figure class="flex flex-col items-center">
+          <img src={wordpress} class="" alt="" />
+          <figcaption
+            class="dark:text-light-dark text-dark-light text-center mt-4"
+          >
+            WordPress
+          </figcaption>
+        </figure>
+        <figure class="flex flex-col items-center">
+          <img src={woocommerce} class="" alt="" />
+          <figcaption
+            class="dark:text-light-dark text-dark-light text-center mt-4"
+          >
+            WooCommerce
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </article>
+</div>
