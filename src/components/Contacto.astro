@@ -5,50 +5,38 @@ import github_icon from "/img/github_icon.svg";
 import linkedin_icon from "/img/linkedin_icon.svg";
 ---
 
-
-<div class="container py-32">
+<div class="container min-h-screen py-32 font-light flex items-center">
   <div
-    class="w-full flex lg:flex-row flex-col gap-20 lg:items-center justify-between"
+    class="w-full h-fit flex lg:flex-row flex-col lg:gap-3 sm:gap-16 gap-14 items-start justify-between"
   >
-    
-    <article class="lg:w-4/12 w-full flex flex-col sm:gap-10 gap-8">
+    <article class="flex flex-col items-start sm:gap-12 gap-6">
       <div>
         <h2
-          class="2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold  text-dark dark:text-light relative z-20"
+          class="2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold text-dark dark:text-light relative z-20"
         >
           Alguna Duda?
         </h2>
-        <p class=" text-dark-light dark:text-light-dark mt-7">
+        <p class="text-dark-light dark:text-light-dark mt-7 md:text-lg sm:text-base text-base font-medium">
           Pongamonos en contacto, y resolvamos ese problema, te parece?
         </p>
       </div>
-      <div class="[&>img]:h-20 [&>img]:w-auto [&>img]:brightness-0 [&>img]:invert [&>img]:justify-self-center [&>img]:opacity-80">
-        <img src={email_icon} alt="">
-        <img src={linkedin_icon} alt="">
-        <img src={github_icon} alt="">
-        <img src={figma_icon} alt="">
-      </div>
-      <div class="mt-5 flex sm:gap-5 gap-8">
-        <a
-          href="https://www.linkedin.com/in/matias-gomez-676ab3230/"
-          rel="external"
-          target="_blank"
-          class="hover:ring-violeta hover:text-violeta transition-colors ring-2 ring-grey px-6 rounded-3xl py-3 xl:text-2xl lg:text-xl md:text-lg text-base font-medium text-grey-text"
-          >LinkedIn</a
-        >
-        <a
-          href="https://github.com/gomez-matias"
-          rel="external"
-          target="_blank"
-          class="hover:ring-celeste hover:text-celeste transition-colors ring-2 ring-grey px-6 rounded-3xl py-3 xl:text-2xl lg:text-xl md:text-lg text-base font-medium text-grey-text"
-          >GitHub</a
-        >
+      <div
+        class="grid grid-flow-row-dense sm:grid-cols-5 grid-cols-6 grid-rows-4 sm:gap-6 gap-4 [&>img]:col-span-1 sm:[&>a]:col-span-4 [&>a]:col-span-5 [&>img]:w-auto [&>a]:w-auto [&>img]:h-15 [&>img]:brightness-0 [&>img]:dark:invert [&>img]:justify-self-center [&>img]:opacity-70 [&>img]:my-auto [&>a]:flex [&>a]:items-center [&>a]:dark:text-light-dark [&>a]:text-dark-light md:[&>a]:text-lg sm:[&>a]:text-base [&>a]:text-sm "
+      >
+        <img src={email_icon} alt="" />
+        <a href="mailto:gomezmatias126@gmail.com" target="_blank">gomezmatias126@gmail.com</a>
+        <img src={linkedin_icon} alt="" />
+        <a href="https://www.linkedin.com/in/gomezmatias126/" target="_blank">linkedin.com/in/gomezmatias126</a>
+        <img src={github_icon} alt="" />
+        <a href="https://github.com/gomezmatias126" target="_blank">github.com/gomezmatias126</a>
+        <img src={figma_icon} alt="" />
+        <a href="https://www.figma.com/@gomezmatias126" target="_blank">figma.com/@gomezmatias126</a>
       </div>
     </article>
-    <div class="lg:w-8/12 w-full">
-      <form id="form">
+    <div class="lg:w-5/12 w-full">
+      <form id="form w-full">
         <div
-          class="flex flex-col font-light [&>div>input]:dark:text-light-dark [&>div>input]:text-dark-light [&>div>textarea]:dark:text-light-dark [&>div>textarea]:text-dark-light [&>div>label]:dark:text-light-dark [&>div>label]:text-dark-light gap-y-8 gap-x-10 [&>div>input]:ring-1 [&>div>input]:dark:ring-grey [&>div>input]:ring-dark-light [&>div>input]:bg-transparent [&>div>textarea]:bg-transparent"
+          class="flex flex-col font-light [&>div>input]:dark:text-light-dark [&>div>input]:text-dark-light [&>div>textarea]:dark:text-light-dark [&>div>textarea]:text-dark-light [&>div>label]:dark:text-light-dark [&>div>label]:text-dark-light gap-y-8 gap-x-10 [&>div>input]:ring-1 [&>div>input]:dark:ring-grey [&>div>input]:ring-dark-light [&>div>input]:bg-transparent [&>div>textarea]:bg-transparent "
         >
           <div class="flex flex-col gap-2">
             <label
