@@ -15,7 +15,6 @@ let barrita = "/";
         <a
           href="/"
           class="font-normal leading-3 text-black sm:text-2xl text-xl"
-          aria-hidden="true"
           ><svg
             class="[&>path]:dark:fill-light [&>path]:fill-dark"
             width="51"
@@ -187,11 +186,6 @@ let barrita = "/";
   input:checked + label:after {
     left: calc(100% - 5px);
     transform: translateX(-100%);
-  }
-  @media (max-width: 768px) {
-    .lista_item_navbar {
-      height: calc(100vh - 5rem);
-    }
   }
   .btn_animacion {
     transition: scale 750ms, background-color 1000ms, color 1000ms,
