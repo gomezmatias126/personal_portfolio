@@ -1,0 +1,122 @@
+---
+const proyectos = await Astro.glob("../pages/proyectos/*.md");
+---
+
+<div class="container relative grid place-items-center mb-10">
+  <article
+    class="w-full h-fit flex items-center flex-col md:gap-14 gap-10 [&>p]:text-dark-light [&>p]:dark:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm"
+  >
+    <div>
+      <h2
+        class="titulo 2xl:text-7xl xl:text-6xl lg:text-5xl sm:text-5xl text-4xl font-bold text-center text-dark dark:text-light relative z-20"
+      >
+        Mis Proyectos
+      </h2>
+      <p class="text-center text-dark-light dark:text-light-dark mt-4">
+        Estas son algunas de las paginas web que he realizado.
+      </p>
+    </div>
+  </article>
+</div>
+<div
+  draggable="false"
+  id="carousel"
+  class="relative w-full h-auto 2xl:aspect-[12/4] lg:aspect-[12/5] md:aspect-[12/10] sm:aspect-[12/9] aspect-[4/6] m-0 overflow-hidden"
+>
+  <ul
+    draggable="false"
+    id="image-track"
+    data-mouse-down-at="0"
+    data-prev-percentage="0"
+    class="absolute flex min-w-max gap-16 h-full [&>img]:h-full [&>img]:w-auto [&>img]:object-cover [&>img]:aspect-[1/1] select-none cursor-grab left-0 will-change-transform"
+  >
+    {
+      proyectos.map((proyecto) => (
+        <li class="grid grid-cols-2 gap-5 items-center justify-items-center aspect-[4/2] h-auto">
+          <img
+            class="h-full object-cover"
+            src={proyecto.frontmatter.image.url}
+            alt=""
+            draggable="false"
+          />
+          <div class="flex flex-col gap-16 items-start px-3 py-5">
+            <h3 class="2xl:text-4xl xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold text-dark dark:text-light relative z-20">
+              {proyecto.frontmatter.title}
+            </h3>
+            <p class="text-dark-light dark:text-light-dark">
+              {proyecto.frontmatter.description}
+            </p>
+            <div class="flex gap-6">
+              <a
+                target="_blank"
+                class="md:text-xl sm:text-lg text-base gap-1 items-center w-fit dark:text-dark text-light bg-dark dark:bg-light px-8 py-3 md:px-12 lg:px-5 xl:px-6 2xl:px-10 sm:border-none border border-dark"
+                href={proyecto.frontmatter.url}
+              >
+                Ver Pagina
+              </a>
+              <a
+                target="_blank"
+                class="md:text-xl sm:text-lg text-base gap-1 items-center w-fit text-dark dark:text-light px-8 py-3 md:px-12 lg:px-5 xl:px-6 2xl:px-10 border border-dark"
+                href={proyecto.frontmatter.url}
+              >
+                Ver Código
+              </a>
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  h3,
+  p {
+    text-wrap: balance;
+  }
+</style>
+
+<script>
+  const track = document.getElementById("image-track");
+  const carousel = document.getElementById("carousel");
+
+  const handleOnDown = (e) => (track.dataset.mouseDownAt = e.clientX);
+
+  const handleOnUp = () => {
+    track.dataset.mouseDownAt = "0";
+    track.dataset.prevPercentage = track.dataset.percentage;
+  };
+
+  const handleOnMove = (e) => {
+    if (track.dataset.mouseDownAt === "0") return;
+    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+      maxDelta = window.innerWidth / 2;
+    const percentage = (mouseDelta / maxDelta) * -100,
+      nextPercentageUnconstrained =
+        parseFloat(track.dataset.prevPercentage) + percentage,
+      nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+    track.dataset.percentage = nextPercentage;
+
+    track.animate(
+      {
+        transform: `translate(${nextPercentage}%, 0%)`,
+      },
+      { duration: 12000, fill: "forwards" }
+    );
+  };
+
+  /* -- Had to add extra lines for touch events -- */
+
+  carousel.onmousedown = (e) => handleOnDown(e);
+
+  carousel.ontouchstart = (e) => handleOnDown(e.touches[0]);
+
+  carousel.onmouseup = (e) => handleOnUp(e);
+
+  carousel.ontouchend = (e) => handleOnUp(e.touches[0]);
+
+  carousel.onmousemove = (e) => handleOnMove(e);
+
+  carousel.ontouchmove = (e) => handleOnMove(e.touches[0]);
+</script>
