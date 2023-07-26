@@ -7,16 +7,16 @@ import linkedin_icon from "/img/linkedin_icon.svg";
 
 <div class="container min-h-screen py-28 font-light flex items-center">
   <div
-    class="w-full h-fit flex lg:flex-row flex-col lg:gap-3 sm:gap-16 gap-14 items-center justify-center"
+    class="w-full h-fit flex lg:flex-row flex-col lg:gap-3 sm:gap-16 gap-14 items-start justify-between"
   >
-    <article class="flex flex-col items-center sm:gap-12 gap-6">
+    <article class="flex flex-col items-start sm:gap-12 gap-6">
       <div>
         <h2
-          class="titulo 2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold text-dark dark:text-light relative z-20 text-center"
+          class="titulo 2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold text-dark dark:text-light relative z-20"
         >
           Alguna Duda?
         </h2>
-        <p class="text-dark-light dark:text-light-dark mt-7 md:text-lg sm:text-base text-base font-medium text-center" style="text-wrap: balance">
+        <p class="text-dark-light dark:text-light-dark mt-7 md:text-lg sm:text-base text-base font-medium" style="text-wrap: balance">
           Estoy Abierto a Todas las oportunidades.
         </p>
       </div>
@@ -33,6 +33,79 @@ import linkedin_icon from "/img/linkedin_icon.svg";
         <a href="https://www.figma.com/@gomezmatias126" target="_blank">figma.com/@gomezmatias126</a>
       </div>
     </article>
+    <div class="lg:w-5/12 w-full">
+      <form id="form w-full">
+        <div
+          class="flex flex-col font-light [&>div>input]:dark:text-light-dark [&>div>input]:text-dark-light [&>div>textarea]:dark:text-light-dark [&>div>textarea]:text-dark-light [&>div>label]:dark:text-light-dark [&>div>label]:text-dark-light gap-y-8 gap-x-10 [&>div>input]:ring-1 [&>div>input]:dark:ring-grey [&>div>input]:ring-dark-light [&>div>input]:bg-transparent [&>div>textarea]:bg-transparent "
+        >
+          <div class="flex flex-col gap-2">
+            <label
+              class="md:text-lg sm:text-base text-sm font-medium"
+              for="nombre">Nombre</label
+            >
+            <input
+              class="px-2 py-4 h-12"
+              id="nombre"
+              name="nombre"
+              type="text"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              class="md:text-lg sm:text-base text-sm font-medium"
+              for="email">Email</label
+            >
+            <input
+              class="px-2 py-4 h-12"
+              id="email"
+              name="email"
+              type="email"
+            />
+          </div>
+          <div class="flex flex-col gap-2 col-span-2">
+            <label
+              class="md:text-lg sm:text-base text-sm font-medium"
+              for="mensaje">Mensaje</label
+            >
+            <textarea
+              name="mensaje"
+              id="mensaje"
+              cols="30"
+              rows="10"
+              class="p-2 h-36 ring-1 dark:ring-grey ring-dark-light"></textarea>
+          </div>
+          <div>
+            <button
+              type="submit"
+              id="btnEnviarForm"
+              name="Enviar Mensaje"
+              class="relative z-20 sm:px-20 sm:py-4 py-4 leading-none text-light font-regular text-lg leading-0 subpixel-antialiased w-full flex gap-2 items-center justify-center overflow-hidden"
+            >
+              <span class="fondo_boton_contacto bg-gradient-to-tr from-light via-grey to-light dark:from-dark dark:via-dark-light dark:to-dark"></span>
+              <span class="relative z-20 dark:text-light-dark text-dark"> Enviar Mensaje</span>
+              <svg
+                class="h-6 relative z-20 dark:fill-light-dark fill-dark-light"
+                width="31"
+                height="30"
+                viewBox="0 0 31 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M30.0075 0L0 12L11.195 17.0625L27.0075 3L12.945 18.8125L18.0075 30L30.0075 0Z"></path>
+              </svg>
+            </button>
+          </div>
+          <div
+            class="enviado mt-2 font-regular text-xl"
+            id="enviado"
+            aria-roledescription="Indicador del Estado del Mensaje Enviado"
+          >
+            <span>Enviando Mensaje....</span>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
