@@ -97,12 +97,10 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 .carousel {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  scroll-snap-type: none;
   scroll-behavior: smooth;
 }
 .carousel.dragging{
   scroll-behavior: auto;
-  scroll-snap-type: none;
   cursor: grabbing;
 }
 .carousel.dragging img{
