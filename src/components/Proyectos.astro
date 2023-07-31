@@ -6,13 +6,13 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
   <article
     class="w-full h-fit flex items-center flex-col md:gap-14 gap-10 [&>p]:text-dark-light [&>p]:dark:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm"
   >
-    <div>
+    <div id="titulo_proyectos">
       <h2
-        class="titulo 2xl:text-7xl xl:text-6xl lg:text-5xl sm:text-5xl text-4xl font-bold sm:text-center text-left text-dark dark:text-light relative z-20"
+        class=" 2xl:text-7xl xl:text-6xl lg:text-5xl sm:text-5xl text-4xl font-bold sm:text-center text-left text-dark dark:text-light relative z-20 opacity-0"
       >
         Mis Proyectos
       </h2>
-      <p class="sm:text-center text-left text-dark-light dark:text-light-dark mt-4">
+      <p class="sm:text-center text-left text-dark-light dark:text-light-dark mt-4 opacity-0">
         Estas son algunas de las páginas web que he realizado.
       </p>
     </div>
@@ -109,7 +109,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 }
 </style>
 
-<script async>
+<script>
 const slidesContainer = document.getElementById("slides-container");
 const swipe_señal = document.getElementById("swipe_señal");
 const slide = document.querySelector(".slide");
@@ -118,7 +118,7 @@ const nextButton = document.getElementById("slide-arrow-next");
 let scrollWidth = slidesContainer.scrollWidth - slidesContainer.clientWidth;
 
 const hideSwipers =  () => {
-  if(window.innerWidth <= '768'){
+  if(window.innerWidth <= 768){
     prevButton.style.display = 'none';
     nextButton.style.display = 'none'; 
   }
@@ -168,7 +168,7 @@ const handleOnUp = () =>{
 
 slidesContainer.onmousedown = (e) => handleOnDown(e);
 slidesContainer.onmousemove = (e) => handleOnMove(e);
-slidesContainer.onmouseup = (e) => handleOnUp(e);
+slidesContainer.onmouseup = (e) => handleOnUp();
 // slidesContainer.ontouchstart = (e) => handleOnDown(e);
 // slidesContainer.ontouchmove = (e) => handleOnMove(e);
 // slidesContainer.ontouchend = (e) => handleOnUp(e);
@@ -178,4 +178,22 @@ slidesContainer.onmouseup = (e) => handleOnUp(e);
 // slidesContainer.ontouchend = (e) => handleOnUp(e.touches[0]);
 // slidesContainer.ontouchmove = (e) => handleOnMove(e.touches[0]);
 // if (window.innerWidth < 578) return;
+
+
+import { animate, inView, stagger } from "motion";
+inView("#titulo_proyectos", (caja_titulo) => {
+  const controls = animate(
+    caja_titulo.target.children,
+    { opacity: [0, 100], y:[500, 0] },
+    {
+      duration: 2,
+      delay: stagger(.1),
+      easing: "cubic-bezier(.5, .24, 0, 1)",
+      direction: "normal",
+    }
+  );
+
+  // This will fire when the element leaves the viewport
+  return (leaveCajaTitulo) => controls.stop();
+})
 </script>
