@@ -110,25 +110,25 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 </style>
 
 <script>
-  import { animate, inView, stagger } from "motion";
+//   import { animate, inView, stagger } from "motion";
 
 
 
-inView("#titulo_proyectos", (caja_titulo) => {
-  const controls = animate(
-    Array.from(caja_titulo.target.children),
-    { opacity: [0, 100], y:[500, 0] },
-    {
-      duration: 2,
-      delay: stagger(.1),
-      easing: 'ease-in-out',
-      direction: "normal",
-    }
-  );
+// inView("#titulo_proyectos", (caja_titulo) => {
+//   const controls = animate(
+//     Array.from(caja_titulo.target.children),
+//     { opacity: [0, 100], y:[500, 0] },
+//     {
+//       duration: 2,
+//       delay: stagger(.1),
+//       easing: 'ease-in-out',
+//       direction: "normal",
+//     }
+//   );
 
-  // This will fire when the element leaves the viewport
-  return (leaveCajaTitulo) => controls.stop();
-})
+//   // This will fire when the element leaves the viewport
+//   return (leaveCajaTitulo) => controls.stop();
+// })
 
 
 const slidesContainer = document.getElementById("slides-container");
