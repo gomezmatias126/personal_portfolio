@@ -1,11 +1,8 @@
 ---
 export interface Props {
 	title: string;
-	textoBotonContactoFooter: string;
-	mostrarFooterContacto: Boolean;
-	linkBotonContactoFooter: string;
 }
-let { title, textoBotonContactoFooter, mostrarFooterContacto, linkBotonContactoFooter } = Astro.props;
+let { title} = Astro.props;
 import Navbar from "../components/Navbar.astro";
 import '@fontsource/jetbrains-mono';
 ---
@@ -25,9 +22,3 @@ import '@fontsource/jetbrains-mono';
 		<slot />
 	</body>
 </html>
-<style>
-  
-</style>
-
-<script>
-</script>

@@ -32,7 +32,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
       id="slides-container"
       class="carousel flex max-w-full h-auto overflow-x-scroll md:snap-proximity snap-mandatory snap-x max-h-min aspect-auto m-0 gap-16 cursor-grab"
     >
-      {proyectos.map(proyecto => (
+      {proyectos.map((proyecto) => (
           <li class="slide flex lg:flex-row min-w-full h-full flex-col sm:gap-3 gap-2 items-center justify-items-center px-0 snap-center snap-always">
             <img draggable="false" class="h-full lg:w-6/12 w-full aspect-[1/1] rounded object-cover bg-light"
               src={proyecto.frontmatter.image.url}
@@ -109,28 +109,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 }
 </style>
 
-<script>
-//   import { animate, inView, stagger } from "motion";
-
-
-
-// inView("#titulo_proyectos", (caja_titulo) => {
-//   const controls = animate(
-//     Array.from(caja_titulo.target.children),
-//     { opacity: [0, 100], y:[500, 0] },
-//     {
-//       duration: 2,
-//       delay: stagger(.1),
-//       easing: 'ease-in-out',
-//       direction: "normal",
-//     }
-//   );
-
-//   // This will fire when the element leaves the viewport
-//   return (leaveCajaTitulo) => controls.stop();
-// })
-
-
+<script defer>
 const slidesContainer = document.getElementById("slides-container");
 const swipe_señal = document.getElementById("swipe_señal");
 const slide = document.querySelector(".slide");
@@ -189,10 +168,10 @@ const handleOnUp = () =>{
 
 slidesContainer.onmousedown = (e) => handleOnDown(e);
 slidesContainer.onmousemove = (e) => handleOnMove(e);
-slidesContainer.onmouseup = (e) => handleOnUp();
-// slidesContainer.ontouchstart = (e) => handleOnDown(e);
-// slidesContainer.ontouchmove = (e) => handleOnMove(e);
-// slidesContainer.ontouchend = (e) => handleOnUp(e);
+slidesContainer.onmouseup = () => handleOnUp();
+slidesContainer.ontouchstart = (e) => handleOnDown(e);
+slidesContainer.ontouchmove = (e) => handleOnMove(e);
+slidesContainer.ontouchend = () => handleOnUp();
 
 // /* -- Had to add extra lines for touch events -- */
 // slidesContainer.ontouchstart = (e) => handleOnDown(e.touches[0]);
