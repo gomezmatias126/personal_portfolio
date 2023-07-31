@@ -110,13 +110,13 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 </style>
 
 <script>
-import { animate, inView, stagger } from "motion";
+  import { animate, inView, stagger } from "motion";
 
 
 
 inView("#titulo_proyectos", (caja_titulo) => {
   const controls = animate(
-    caja_titulo.target.children,
+    Array.from(caja_titulo.target.children),
     { opacity: [0, 100], y:[500, 0] },
     {
       duration: 2,
