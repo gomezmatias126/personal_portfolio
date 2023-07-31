@@ -110,6 +110,27 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 </style>
 
 <script>
+import { animate, inView, stagger } from "motion";
+
+
+
+inView("#titulo_proyectos", (caja_titulo) => {
+  const controls = animate(
+    caja_titulo.target.children,
+    { opacity: [0, 100], y:[500, 0] },
+    {
+      duration: 2,
+      delay: stagger(.1),
+      easing: "cubic-bezier(.5, .24, 0, 1)",
+      direction: "normal",
+    }
+  );
+
+  // This will fire when the element leaves the viewport
+  return (leaveCajaTitulo) => controls.stop();
+})
+
+
 const slidesContainer = document.getElementById("slides-container");
 const swipe_señal = document.getElementById("swipe_señal");
 const slide = document.querySelector(".slide");
@@ -178,22 +199,4 @@ slidesContainer.onmouseup = (e) => handleOnUp();
 // slidesContainer.ontouchend = (e) => handleOnUp(e.touches[0]);
 // slidesContainer.ontouchmove = (e) => handleOnMove(e.touches[0]);
 // if (window.innerWidth < 578) return;
-
-
-import { animate, inView, stagger } from "motion";
-inView("#titulo_proyectos", (caja_titulo) => {
-  const controls = animate(
-    caja_titulo.target.children,
-    { opacity: [0, 100], y:[500, 0] },
-    {
-      duration: 2,
-      delay: stagger(.1),
-      easing: "cubic-bezier(.5, .24, 0, 1)",
-      direction: "normal",
-    }
-  );
-
-  // This will fire when the element leaves the viewport
-  return (leaveCajaTitulo) => controls.stop();
-})
 </script>
