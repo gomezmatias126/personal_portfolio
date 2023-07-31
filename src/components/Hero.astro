@@ -105,39 +105,39 @@
 </style>
 
 <script>
-  import { animate, stagger } from "motion";
-  let titulo = document.getElementById("titulo");
-  titulo.innerHTML = titulo.textContent.replace(
-    /\S/g,
-    "<span class='letter dark:bg-dark bg-light'>$&</span>"
-  );
-  let spans = document.querySelectorAll(".letter");
-  animate(
-    spans,
-    { backgroundColor: ['currentColor', 'transparent'] },
-    {
-      duration: 2,
-      delay: stagger(.06),
-      easing: "cubic-bezier(.5, .24, 0, 1)",
-      direction: "normal",
-    }
-  );
-  animate(
-    '.caja_botones_hero',
-    { y: [200, 0], opacity:[0, 100] },
-    {
-      duration: 2,
-      easing: "cubic-bezier(.5, .24, 0, 1)",
-      direction: "normal",
-    }
-  );
-  animate(
-    '#titulo',
-    { x: [-200, 0], opacity:[0, 100] },
-    {
-      duration: 2,
-      easing: "cubic-bezier(.5, .24, 0, 1)",
-      direction: "normal",
-    }
-  );
+  // import { animate, stagger } from "motion";
+  // let titulo = document.getElementById("titulo");
+  // titulo.innerHTML = titulo.textContent.replace(
+  //   /\S/g,
+  //   "<span class='letter dark:bg-dark bg-light'>$&</span>"
+  // );
+  // let spans = document.querySelectorAll(".letter");
+  // animate(
+  //   spans,
+  //   { backgroundColor: ['currentColor', 'transparent'] },
+  //   {
+  //     duration: 2,
+  //     delay: stagger(.06),
+  //     easing: "cubic-bezier(.5, .24, 0, 1)",
+  //     direction: "normal",
+  //   }
+  // );
+  // animate(
+  //   '.caja_botones_hero',
+  //   { y: [200, 0], opacity:[0, 100] },
+  //   {
+  //     duration: 2,
+  //     easing: "cubic-bezier(.5, .24, 0, 1)",
+  //     direction: "normal",
+  //   }
+  // );
+  // animate(
+  //   '#titulo',
+  //   { x: [-200, 0], opacity:[0, 100] },
+  //   {
+  //     duration: 2,
+  //     easing: "cubic-bezier(.5, .24, 0, 1)",
+  //     direction: "normal",
+  //   }
+  // );
 </script>
