@@ -21,16 +21,16 @@ import linkedin_icon from "/img/linkedin_icon.svg";
         </p>
       </div>
       <div
-        class="grid grid-flow-row-dense sm:grid-cols-5 grid-cols-6 grid-rows-4 sm:gap-6 gap-4 [&>img]:col-span-1 sm:[&>a]:col-span-4 [&>a]:col-span-5 [&>img]:w-auto [&>a]:w-auto [&>img]:h-15 [&>img]:brightness-0 [&>img]:dark:invert [&>img]:justify-self-center [&>img]:opacity-70 [&>img]:my-auto [&>a]:flex [&>a]:items-center [&>a]:dark:text-light-dark [&>a]:text-dark-light md:[&>a]:text-lg sm:[&>a]:text-base [&>a]:text-sm "
+        class="grid grid-flow-row-dense sm:grid-cols-5 grid-cols-6 grid-rows-4 sm:gap-6 gap-4 [&>img]:col-span-1 sm:[&>a]:col-span-4 [&>a]:col-span-5 [&>img]:w-auto [&>a]:w-auto [&>img]:h-15 [&>img]:brightness-0 [&>img]:dark:invert [&>img]:justify-self-center [&>img]:opacity-70 [&>img]:my-auto [&>a]:flex [&>a]:items-center [&>a]:dark:text-light-dark [&>a]:text-dark-light md:[&>a]:text-lg sm:[&>a]:text-base [&>a]:text-sm dark:hover:[&>a]:text-light hover:[&>a]:text-dark"
       >
-        <img src={email_icon} alt="" />
-        <a href="mailto:gomezmatias126@gmail.com" target="_blank">gomezmatias126@gmail.com</a>
-        <img src={linkedin_icon} alt="" />
-        <a href="https://www.linkedin.com/in/gomezmatias126/" target="_blank">linkedin.com/in/gomezmatias126</a>
-        <img src={github_icon} alt="" />
-        <a href="https://github.com/gomezmatias126" target="_blank">github.com/gomezmatias126</a>
-        <img src={figma_icon} alt="" />
-        <a href="https://www.figma.com/@gomezmatias126" target="_blank">figma.com/@gomezmatias126</a>
+        <img class="icon_contacto" src={email_icon} alt="" />
+        <a class="link_contacto" href="mailto:gomezmatias126@gmail.com" target="_blank">gomezmatias126@gmail.com</a>
+        <img class="icon_contacto" src={linkedin_icon} alt="" />
+        <a class="link_contacto" href="https://www.linkedin.com/in/gomezmatias126/" target="_blank">linkedin.com/in/gomezmatias126</a>
+        <img class="icon_contacto" src={github_icon} alt="" />
+        <a class="link_contacto" href="https://github.com/gomezmatias126" target="_blank">github.com/gomezmatias126</a>
+        <img class="icon_contacto" src={figma_icon} alt="" />
+        <a class="link_contacto" href="https://www.figma.com/@gomezmatias126" target="_blank">figma.com/@gomezmatias126</a>
       </div>
     </article>
   </div>
@@ -75,55 +75,3 @@ import linkedin_icon from "/img/linkedin_icon.svg";
     visibility: visible;
   }
 </style>
-
-<script>
-  const formulario = document.getElementById("form");
-  const respuesta = document.getElementById("enviado");
-  const btnEnviarForm = document.getElementById("btnEnviarForm");
-
-  function enable__form() {
-    btnEnviarForm.disabled = false;
-    setTimeout(() => {
-      respuesta.style.visibility = "hidden";
-    }, 10000);
-  }
-  formulario.addEventListener("submit", function (e) {
-    respuesta.textContent = "Enviando Mensaje...";
-    respuesta.style.visibility = "visible";
-    e.preventDefault();
-    btnEnviarForm.disabled = true;
-    var datos = new FormData(formulario);
-    fetch("post.php", {
-      method: "POST",
-      body: datos,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        respuesta.textContent = data;
-        if (data.includes("Error")) {
-          respuesta.classList.add("error");
-          enable__form();
-          setTimeout(() => {
-            respuesta.classList.remove("error");
-          }, 10000);
-        } else {
-          respuesta.classList.add("sended");
-          formulario.reset();
-          enable__form();
-          setTimeout(() => {
-            respuesta.classList.remove("sended");
-          }, 10000);
-        }
-      })
-      .catch(() => {
-        respuesta.textContent =
-          "Hay fallas en el envio, intente por otra via de contacto";
-        respuesta.classList.add("error");
-        enable__form();
-        setTimeout(() => {
-          respuesta.classList.remove("error");
-        }, 10000);
-      });
-  });
-</script>

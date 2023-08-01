@@ -32,11 +32,11 @@ let barrita = "/";
       </li>
       <li
         id="item_navbar_links"
-        class="lista_item_navbar md:flex hidden md:bg-transparent dark:md:bg-transparent dark:bg-dark bg-light md:flex-row justify-center absolute z-30 md:static md:w-auto top-0 md:h-auto h-screen left-0 w-full flex-col items-center gap-10 md:text-base text-4xl capitalize transition-all font-normal dark:text-light text-dark-light [&>a]:font-light [&>a]:py-2 [&>a]:px-4 [&>a]:md:text-black "
+        class="lista_item_navbar md:flex hidden md:bg-transparent dark:md:bg-transparent dark:bg-dark bg-light md:flex-row justify-center absolute z-30 md:static md:w-auto top-0 md:h-auto h-screen left-0 w-full flex-col items-center gap-10 md:text-base text-4xl capitalize font-normal dark:text-light text-dark-light [&>a]:font-light [&>a]:py-2 [&>a]:px-4 [&>a]:md:text-black [&>a]:btn-16 [&>a]:inline-block [&>a]:relative [&>a]:dark:after:bg-light [&>a]:after:bg-dark hover:[&>a]:dark:text-dark hover:[&>a]:text-light"
       >
-        <a href="#proyectos" class="">proyectos</a>
-        <a href="#sobre_mi" class="">sobre mi</a>
-        <a href="#contacto" class="">contacto</a>
+        <a href="#proyectos" class="btn-16">proyectos</a>
+        <a href="#sobre_mi" class="btn-16">sobre mi</a>
+        <a href="#contacto" class="btn-16">contacto</a>
         <input
           aria-hidden="true"
           type="checkbox"
@@ -186,17 +186,5 @@ let barrita = "/";
   input:checked + label:after {
     left: calc(100% - 5px);
     transform: translateX(-100%);
-  }
-  .btn_animacion {
-    transition: scale 750ms, background-color 1000ms, color 1000ms,
-      font-weight 500ms;
-    will-change: scale, background-color, color, font-weight;
-  }
-
-  .btn_animacion:hover,
-  .btn_animacion:focus {
-    font-weight: normal;
-    color: #fcfeff;
-    scale: 1.04;
   }
 </style>

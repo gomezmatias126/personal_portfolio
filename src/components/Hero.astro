@@ -8,7 +8,7 @@
   >
     <h1
       id="titulo"
-      class="titulo 2xl:text-9xl xl:text-8xl lg:text-7xl sm:text-7xl text-[3rem] font-bold text-center dark:text-light relative z-20"
+      class="titulo 2xl:text-9xl xl:text-8xl lg:text-7xl sm:text-7xl text-[3rem] font-bold text-center dark:text-light text-dark relative z-20"
     >
       Nuevo Diseñador <br />Nuevas Ideas
     </h1>
@@ -18,12 +18,12 @@
       <a
         id="mis_proyectos"
         href="#proyectos"
-        class="btn-16 inline-block relative dark:after:bg-dark after:bg-light shadow-lg md:text-xl sm:text-lg text-base gap-1 items-center w-fit text-light transition-colors dark:text-dark dark:hover:text-light hover:text-dark dark:bg-light bg-dark leading-loose"
+        class="btn-16 inline-block relative dark:after:bg-dark after:bg-light dark:hover:text-light hover:text-dark dark:bg-light bg-dark text-light dark:text-dark shadow-lg md:text-xl sm:text-lg text-base gap-1 items-center w-fit leading-loose"
         >Mis Proyectos
       </a>
       <a
         href="#sobre_mi"
-        class="btn6 inline-block dark:after:bg-light-dark after:bg-dark-light leading-loose dark:before:bg-light-dark before:bg-dark-light hover:dark:border-l-light-dark hover:border-l-dark-light hover:dark:border-r-light-dark hover:border-r-dark-light relative md:text-xl sm:text-lg text-base gap-1 items-center dark:text-light text-dark w-fit"
+        class="btn6 inline-block dark:after:bg-light-dark after:bg-dark-light leading-loose dark:before:bg-light-dark before:bg-dark-light hover:dark:border-l-light-dark hover:border-l-dark-light hover:dark:border-r-light-dark hover:border-r-dark-light dark:text-light text-dark relative md:text-xl sm:text-lg text-base gap-1 items-center w-fit"
         >Sobre Mi
       </a>
     </div>
@@ -31,113 +31,42 @@
   </div>
 </div>
 
-<style>
-  h1 {
-    text-wrap: balance;
-  }
-  .animation_hover:hover{
 
-  }
-  .btn-16 {
-  z-index: 1;
-}
-.btn-16:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  direction: rtl;
-  z-index: -1;
-  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-}
-.btn-16:hover:after {
-  left: auto;
-  right: 0;
-  width: 100%;
-}
-.btn-16:active {
-  top: 2px;
-}
-.btn6{
-  border:1px solid transparent; 
-   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-}
-
-.btn6::before {
-  content: '';
-  position: absolute;
-  left: 0px;
-  bottom:0px;
-  z-index:-1;
-  width: 0%;
-  height:1px;
-  box-shadow: inset 0px 0px 0px #6098FF;
-  display: block;
-  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
-}
-
-.btn6:hover::before {
-  width:100%;
-}
-
-.btn6::after {
-  content: '';
-  position: absolute;
-  right: 0px;
-  top:0px;
-  z-index:-1;
-  width: 0%;
-  height:1px;
-  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
-}
-.btn6:hover::after {
-  width:100%;
-}
-.btn6:hover{
-  border-left:1px solid currentColor;
-  border-right:1px solid currentColor;
-}
-</style>
 
 <script>
-  // import { animate, stagger } from "motion";
-  // let titulo = document.getElementById("titulo");
-  // titulo.innerHTML = titulo.textContent.replace(
-  //   /\S/g,
-  //   "<span class='letter dark:bg-dark bg-light'>$&</span>"
-  // );
-  // let spans = document.querySelectorAll(".letter");
-  // animate(
-  //   spans,
-  //   { backgroundColor: ['currentColor', 'transparent'] },
-  //   {
-  //     duration: 2,
-  //     delay: stagger(.06),
-  //     easing: "cubic-bezier(.5, .24, 0, 1)",
-  //     direction: "normal",
-  //   }
-  // );
-  // animate(
-  //   '.caja_botones_hero',
-  //   { y: [200, 0], opacity:[0, 100] },
-  //   {
-  //     duration: 2,
-  //     easing: "cubic-bezier(.5, .24, 0, 1)",
-  //     direction: "normal",
-  //   }
-  // );
-  // animate(
-  //   '#titulo',
-  //   { x: [-200, 0], opacity:[0, 100] },
-  //   {
-  //     duration: 2,
-  //     easing: "cubic-bezier(.5, .24, 0, 1)",
-  //     direction: "normal",
-  //   }
-  // );
+import { animate, stagger } from "motion";
+  let titulo = document.getElementById("titulo");
+  titulo.innerHTML = titulo.textContent.replace(
+    /\S/g,
+    "<span class='letter'>$&</span>"
+  );
+  let spans = document.querySelectorAll(".letter");
+  animate(
+    spans,
+    { opacity: [0, 1]},
+    {
+      duration: 2,
+      delay: stagger(.06),
+      easing: [.5, .24, 0, 1],
+      direction: "normal",
+    }
+  );
+  animate(
+    '.caja_botones_hero',
+    { y: [200, 0], opacity:[0, 100] },
+    {
+      duration: 2,
+      easing: [.5, .24, 0, 1],
+      direction: "normal",
+    }
+  );
+  animate(
+    '#titulo',
+    { x: [-200, 0], opacity:[0, 100] },
+    {
+      duration: 2,
+      easing: [.5, .24, 0, 1],
+      direction: "normal",
+    }
+  );
 </script>

@@ -22,3 +22,73 @@ import '@fontsource/jetbrains-mono';
 		<slot />
 	</body>
 </html>
+
+<style is:global>
+  h1 {
+    text-wrap: balance;
+  }
+  .btn-16 {
+  z-index: 1;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-16:active {
+  top: 2px;
+}
+.btn6{
+  border:1px solid transparent; 
+   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+}
+
+.btn6::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom:0px;
+  z-index:-1;
+  width: 0%;
+  height:1px;
+  box-shadow: inset 0px 0px 0px #6098FF;
+  display: block;
+  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+
+.btn6:hover::before {
+  width:100%;
+}
+
+.btn6::after {
+  content: '';
+  position: absolute;
+  right: 0px;
+  top:0px;
+  z-index:-1;
+  width: 0%;
+  height:1px;
+  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+.btn6:hover::after {
+  width:100%;
+}
+.btn6:hover{
+  border-left:1px solid currentColor;
+  border-right:1px solid currentColor;
+}
+</style>
