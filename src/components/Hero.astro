@@ -18,12 +18,12 @@
       <a
         id="mis_proyectos"
         href="#proyectos"
-        class="btn-16 inline-block relative dark:after:bg-dark after:bg-light dark:hover:text-light hover:text-dark dark:bg-light bg-dark text-light dark:text-dark shadow-lg md:text-xl sm:text-lg text-base gap-1 items-center w-fit leading-loose"
+        class="link_interno btn-16 inline-block relative dark:after:bg-dark after:bg-light dark:hover:text-light hover:text-dark dark:bg-light bg-dark text-light dark:text-dark shadow-lg md:text-xl sm:text-lg text-base gap-1 items-center w-fit leading-loose"
         >Mis Proyectos
       </a>
       <a
         href="#sobre_mi"
-        class="btn6 inline-block dark:after:bg-light-dark after:bg-dark-light leading-loose dark:before:bg-light-dark before:bg-dark-light hover:dark:border-l-light-dark hover:border-l-dark-light hover:dark:border-r-light-dark hover:border-r-dark-light dark:text-light text-dark relative md:text-xl sm:text-lg text-base gap-1 items-center w-fit"
+        class="link_interno btn6 inline-block dark:after:bg-light-dark after:bg-dark-light leading-loose dark:before:bg-light-dark before:bg-dark-light hover:dark:border-l-light-dark hover:border-l-dark-light hover:dark:border-r-light-dark hover:border-r-dark-light dark:text-light text-dark relative md:text-xl sm:text-lg text-base gap-1 items-center w-fit"
         >Sobre Mi
       </a>
     </div>
@@ -33,7 +33,7 @@
 
 
 
-<!-- <script>
+<script>
 import { animate, stagger } from "motion";
   let titulo = document.getElementById("titulo");
   titulo.innerHTML = titulo.textContent.replace(
@@ -69,4 +69,15 @@ import { animate, stagger } from "motion";
       direction: "normal",
     }
   );
-</script> -->
+
+
+
+const botonesInternos = document.querySelectorAll(".link_interno")
+botonesInternos.forEach((boton)=>{
+  boton.addEventListener('click', (e)=>{
+    e.preventDefault();
+    let seccion = document.querySelector(e.target.getAttribute('href'))
+    window.scrollTo(0, seccion.offsetTop)
+  })
+})
+</script> 

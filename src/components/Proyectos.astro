@@ -2,7 +2,7 @@
 const proyectos = await Astro.glob("../pages/proyectos/*.md");
 ---
 
-<div class="container relative z-10 grid place-items-center mb-10 gap-10">
+<div class="container container_proyectos relative z-10 grid place-items-center mb-10 gap-10">
   <article
     class="w-full h-fit flex items-center flex-col md:gap-14 gap-10 [&>p]:text-dark-light [&>p]:dark:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm"
   >
@@ -38,11 +38,11 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
               src={proyecto.frontmatter.image.url}
               alt={proyecto.frontmatter.image.alt}
             />
-            <div class="sm:h-auto h-min flex flex-col xl:gap-8 lg:gap-7 md:gap-6 sm:gap-4 gap-5 items-start lg:px-3 sm:py-5 py-5 [&>*]:select-none">
+            <div class="container_texto sm:h-auto h-min flex flex-col xl:gap-8 lg:gap-7 md:gap-6 sm:gap-4 gap-5 items-start lg:px-3 sm:py-5 py-5 [&>*]:select-none">
               <h3 class="2xl:text-4xl xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold text-dark dark:text-light relative z-20">
                 {proyecto.frontmatter.title}
               </h3>
-              <div class="text-dark-light dark:text-light-dark text-base font-light [&>*]:select-none">
+              <div class="container_texto_parrafo text-dark-light dark:text-light-dark text-base font-light [&>*]:select-none">
                 <slot set:html={proyecto.compiledContent()}>
               </div>
               <div class="flex sm:gap-6 gap-4">
@@ -111,8 +111,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 </style>
 
 <script>
-  import { info } from "astro/dist/core/logger/core";
-import { animate, inView, stagger, scroll } from "motion";
+import { animate, inView, stagger, scroll, timeline } from "motion";
   // const slide_images = document.querySelectorAll('.slide_img');
 // window.addEventListener("DOMContentLoaded", (event) => {
 //   slide_images.forEach(img=>{
@@ -194,40 +193,64 @@ slidesContainer.onmouseup = () => handleOnUp();
 
 
 const titulo_proyectos = document.getElementById('titulo_proyectos');
-
+const container_proyectos = document.querySelectorAll('.container_proyectos');
+container_proyectos[0].style.opacity = 0;
 const sliders = document.querySelectorAll(".slide");
 sliders.forEach((item) => {  
-  scroll(animate(item.firstElementChild, { opacity: [0, 1, 1, 0], scale: [0.9, 1, 1, 0.9]}, {
+  scroll(animate(item.firstElementChild, { opacity: [0, 1, 1, 0], scale: [0.6, 1, 1, 0.6]}, {
     // allowWebkitAcceleration: true,
     easing: [.5, .24, 0, 1],
   }), {
     target: item.firstElementChild,
       offset: ["end start", "start end"],
-    // offset: ["start end", "end end", "start start", "end start"],
     axis: "x",
     container: slidesContainer
   });
 });
 
-// inView(titulo_proyectos, (caja_titulo) => {
-//   animate(
-//     Array.from(caja_titulo.target.children),
-//     { opacity: [0, 100], y:[500, 0] },
-//     {
-//       duration: 2,
-//       delay: stagger(.1),
-//       easing: [.5, .24, 0, 1],
-//       direction: "normal",
-//     }
-//   );
-//   animate(slidesContainer, { opacity: [0, 100], x:[500, 0] },
-//     {
-//       duration: 2,
-//       delay: stagger(.1),
-//       easing: [.5, .24, 0, 1],
-//       direction: "normal",
-//     });
-//   // This will fire when the element leaves the viewport
-//   // return (leaveCajaTitulo) => controls.stop();
-// })
+
+const sequence = [
+  [container_proyectos,{ opacity: [0, 100] },
+  {
+    duration: 0.1,
+    at: 0.1
+  }],
+  ['#titulo_proyectos > *',{ opacity: [0, 100], y:[500, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.2
+  }],
+  ['.slide_img',{ opacity: [0, 100], scale: [0.3, 1], x:[-500, 0] },
+  {
+    duration: 1.5,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.1
+  }],
+  ['.container_texto > h3',{ opacity: [0, 100], x:[500, 0], y:[-300, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.3
+  }],
+  ['.container_texto_parrafo > p',{ opacity: [0, 100], x:[500, 0], y:[300, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.4
+  }],
+  ['.container_texto > div > a',{ opacity: [0, 100], y:[-500, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.5
+  }],
+
+]
+inView(container_proyectos, ()=> {timeline(sequence)} ,{ margin: "0% 0% -40% 0%" })
 </script>

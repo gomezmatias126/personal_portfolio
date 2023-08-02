@@ -10,10 +10,10 @@ import Proyectos from "../components/Proyectos.astro";
 <Layout
   title="Matias Gomez | Diseñador Web"
 >
-  <!-- <span
+  <span
     id="introBgLeft"
     class="bg-dark w-full h-screen fixed top-0 bottom-0 right-0 left-0 z-[61]"
-  ></span> -->
+  ></span>
   <main class="main relative z-40 w-full">
     <section
       id="hero"
@@ -63,22 +63,22 @@ import Proyectos from "../components/Proyectos.astro";
 </Layout>
 
 <script>
-  // import { animate, stagger } from "motion";
-  // let introBgLeft = document.getElementById("introBgLeft");
-  // let intro = () => {
-  // window.scrollTo(0, 0);
-  //   animate(
-  //     introBgLeft,
-  //     {
-  //       backgroundColor: ["currentColor", "#222"],
-  //       x: ["-0%", "-100%"],
-  //     },
-  //     {
-  //       duration: 1.5,
-  //       easing: "ease-in-out",
-  //       direction: "normal",
-  //     }
-  //   )
-  // };
-  // intro();
+  import { animate } from "motion";
+  let introBgLeft = document.getElementById("introBgLeft");
+  let intro = () => {
+  window.scrollTo(0, 0);
+    animate(
+      introBgLeft,
+      {
+        backgroundColor: ["currentColor", "#222"],
+        x: ["-0%", "-100%"],
+      },
+      {
+        duration: 1.5,
+        easing: "ease-in-out",
+        direction: "normal",
+      }
+    )
+  };
+  intro();
 </script>
