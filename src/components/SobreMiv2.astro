@@ -1,84 +1,86 @@
 ---
-import foto from "/img/foto_monte.avif";
+import foto from "/img/foto.webp";
 ---
 
 <div
-  class="container container_sobre_mi min-h-screen max-h-[1400px] sm:py-28 pt-16 relative grid place-items-center"
+  class="container min-h-screen max-h-[1024px] relative grid place-items-center"
 >
   <div
-    class="caja_principal sm:pb-0 dark:before:bg-light-dark before:bg-dark relative z-20 w-full lg:h-auto h-fit flex lg:flex-row flex-col lg:items-center"
+    class="relative z-20 w-full h-fit flex lg:flex-row flex-col-reverse sm:gap-16 gap-4 lg:items-center"
   >
-    <div class="self-start lg:aspect-auto aspect-square w-full lg:w-6/12 lg:min-h-[100%] h-auto object-cover bg-green relative z-30">
-      <img
-        class=""
-        src={foto}
-        alt="Foto de Matias Gomez"
-      />
-    </div>
-    <!-- <img
-        class="self-start lg:aspect-auto aspect-square w-full lg:w-6/12 lg:min-h-[100%] h-auto object-cover relative z-30"
-        src={foto}
-        alt="Foto de Matias Gomez"
-      /> -->
     <div
-      class="lg:w-6/12 relative lg:px-10 md:px-8 sm:px-6 px-4 lg:py-12 md:py-9 sm:py-7 pt-6 pb-10 z-20 h-auto flex items-start flex-col xl:gap-6 sm:gap-7 gap-3 [&>p]:dark:text-dark-light [&>p]:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm [&>p]:font-light"
+      class="w-full h-fit flex items-start flex-col xl:gap-10 sm:gap-8 gap-5 [&>p]:dark:text-dark-light [&>p]:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm"
     >
       <h2
-        class="titulo 2xl:text-8xl xl:text-6xl lg:text-5xl sm:text-4xl text-4xl font-bold text-center dark:text-dark text-light relative z-20 leading-none"
+        class="2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold text-center dark:text-dark text-light relative z-20"
       >
         Holaaa...
       </h2>
       <p>
         Soy Matías, un estudiante autodidacta que acaba de comenzar en este
-        hermoso ambiente del diseño web. Mi experiencia profesional comenzó hace
-        varios años, siendo Ayudante de Cocina mi primer trabajo en los veranos
-        de la secundaria, para luego pasar a ser Recepcionista en un servicio
-        técnico de celulares, y últimamente, un Diseñador Web Freelancer.
+        hermoso ambiente del diseño web. Ya que en la programación llevo varios
+        años, mis primeros lenguajes fueron C y C++, los cuales aprendí cuando
+        comencé la secundaria y tenía que manejar pequeñas placas electrónicas
+        como Arduinos y PIC's.
       </p>
       <p>
-        Durante todos estos años, he aprendido a trabajar coordinadamente con
-        grandes grupos de personas, a comunicarme de manera efectiva y a ser más
-        organizado para hacer frente a las nuevas responsabilidades que iban
-        surgiendo. Debido a mi paso por una secundaria técnica (Electrónica),
-        descubrí el desarrollo de software, aunque más tarde el diseño web fue
-        el que me terminó de convencer de que debía dedicarme a la programación.
+        Actualmente me encuentro estudiando para convertirme en Desarrollador de
+        Software en el futuro. Mi experiencia incluye el diseño de páginas web
+        simples, creando prototipos en Figma y luego llevándolos a código, y
+        hasta hace poco, empecé a utilizar Wordpress.
       </p>
-      <p>
-        Gracias a todo esto, actualmente me encuentro estudiando para
-        convertirme en Desarrollador Web Frontend. Mi experiencia incluye el
-        diseño de páginas web simples, creando prototipos en Figma y luego
-        llevándolos a código utilizando Astro JS y Tailwind CSS.
-      </p>
-      <p>
-        Además, hace poco tiempo comencé a utilizar WordPress para tener en mi
-        repertorio la habilidad de crear Tiendas Virtuales.
-      </p>
-      <!-- <a
+      <a
         href="#banner_trabajos"
-        class="lg:text-xl md:text-lg sm:text-base text-sm gap-1 items-center w-fit text-dark dark:text-light dark:bg-dark bg-light px-6 py-3 md:px-12 lg:px-14 md:py-3 xl:px-14 xl:py-4 sm:border-none border border-dark"
+        class="md:text-xl sm:text-lg text-base gap-1 items-center w-fit text-dark dark:text-light dark:bg-dark bg-light px-8 py-4 md:px-12 lg:px-14 xl:px-14 sm:border-none border border-dark"
         >Mis Proyectos
-      </a> -->
+      </a>
+    </div>
+    <div
+      class="caja_foto md:w-4/12 sm:w-5/12 w-6/12 h-fit relative z-20 [&>svg]:absolute [&>svg]:top-0 [&>svg]:left-0 before:border-light-dark before:dark:border-dark-light after:border-light-dark dark:after:border-dark-light"
+    >
+      <img class="relative z-30" src={foto} alt="Foto de Matias Gomez" />
+      <svg
+        class="z-10"
+        viewBox="0 0 500 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          y="6.10352e-05"
+          width="500"
+          height="500"
+          fill="url(#paint0_linear_14_483)"></rect>
+        <defs>
+          <linearGradient
+            id="paint0_linear_14_483"
+            x1="120.833"
+            y1="5.1659e-05"
+            x2="381.667"
+            y2="500"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#EEEEEE"></stop>
+            <stop offset="0.260417" stop-color="#F5F5F5"></stop>
+            <stop offset="1" stop-color="#999999"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
   </div>
+  <svg
+    class="xl:w-full lg:w-screen lg:h-fit w-[110%] h-full fill-dark dark:fill-grey absolute top-1/2 -translate-y-1/2 left-0 -translate-x-[5%] z-10"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1600 800"
+    preserveAspectRatio="none"
+  >
+    <path
+      d="M0 0.0581055L1714.5 101.058L1599.5 706.558L62.2838 780.558L0 0.0581055Z"
+    ></path>
+  </svg>
 </div>
 
 <style>
-  .caja_principal::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    z-index: 17;
-  }
-  @media screen and (width <= 768px) {
-    .container_sobre_mi {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-  }
-  /* .caja_foto::before {
+  .caja_foto::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -97,5 +99,5 @@ import foto from "/img/foto_monte.avif";
     left: 3%;
     top: 3%;
     z-index: 30;
-  } */
+  }
 </style>

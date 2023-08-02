@@ -26,7 +26,7 @@ module.exports = {
 		fontWeight: {
       light: '300',
       medium: '500',
-      bold: '800',
+      bold: '900',
     },
 		container:{
 			center:true,

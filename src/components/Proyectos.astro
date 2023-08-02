@@ -111,7 +111,8 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 </style>
 
 <script>
-  import { animate, inView, stagger, scroll } from "motion";
+  import { info } from "astro/dist/core/logger/core";
+import { animate, inView, stagger, scroll } from "motion";
   // const slide_images = document.querySelectorAll('.slide_img');
 // window.addEventListener("DOMContentLoaded", (event) => {
 //   slide_images.forEach(img=>{
