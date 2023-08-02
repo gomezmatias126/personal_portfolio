@@ -12,7 +12,7 @@ import Proyectos from "../components/Proyectos.astro";
 >
   <span
     id="introBgLeft"
-    class="bg-dark w-full h-screen fixed top-0 bottom-0 right-0 left-0 z-[61]"
+    class="dark:bg-dark bg-light w-full h-screen fixed top-0 bottom-0 right-0 left-0 z-[61]"
   ></span>
   <main class="main relative z-40 w-full">
     <section
@@ -62,23 +62,34 @@ import Proyectos from "../components/Proyectos.astro";
   </main>
 </Layout>
 
+<style>
+  #introBgLeft{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+  }
+</style>
+
 <script>
   import { animate } from "motion";
   let introBgLeft = document.getElementById("introBgLeft");
   let intro = () => {
-  window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     animate(
       introBgLeft,
       {
-        backgroundColor: ["currentColor", "#222"],
-        x: ["-0%", "-100%"],
+        clipPath: [
+          "polygon(100% 0, 100% 100%, 100% 100%, 0 100%, 0 0)",
+          "polygon(100% 0, 100% 0, 50% 100%, 0 100%, 0 0)",
+          "polygon(30% 0, 60% 0, 0 100%, 0 100%, 0 0)",
+          "polygon(15% 0, 30% 0, 0 50%, 0 15%, 0 0)",
+          "polygon(0 0, 0 0, 0 0, 0 0, 0 0)",
+        ]
       },
       {
-        duration: 1.5,
-        easing: "ease-in-out",
+        duration: 3,
+        easing: [.5, .24, 0, 1],
         direction: "normal",
       }
-    )
+    ).finished.then(()=>{ introBgLeft.style.display = 'none' })
   };
   intro();
 </script>

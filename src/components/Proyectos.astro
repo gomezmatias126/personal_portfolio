@@ -83,7 +83,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
     }
     to {
       /* returns the sun to its default position */
-      transform: translateX(30%);
+      transform: translateX(70%);
     }
   }
   h3,
@@ -196,17 +196,19 @@ const titulo_proyectos = document.getElementById('titulo_proyectos');
 const container_proyectos = document.querySelectorAll('.container_proyectos');
 container_proyectos[0].style.opacity = 0;
 const sliders = document.querySelectorAll(".slide");
-sliders.forEach((item) => {  
-  scroll(animate(item.firstElementChild, { opacity: [0, 1, 1, 0], scale: [0.6, 1, 1, 0.6]}, {
-    // allowWebkitAcceleration: true,
-    easing: [.5, .24, 0, 1],
-  }), {
-    target: item.firstElementChild,
+if (window.innerWidth >= 768) {
+  sliders.forEach((item) => {  
+    scroll(animate(item.firstElementChild, { opacity: [0, 1, 1, 0], scale: [0.6, 1, 1, 0.6]}, {
+      // allowWebkitAcceleration: true,
+      easing: [.5, .24, 0, 1],
+    }), {
+      target: item.firstElementChild,
       offset: ["end start", "start end"],
-    axis: "x",
-    container: slidesContainer
+      axis: "x",
+      container: slidesContainer
+    });
   });
-});
+}
 
 
 const sequence = [
@@ -252,5 +254,53 @@ const sequence = [
   }],
 
 ]
-inView(container_proyectos, ()=> {timeline(sequence)} ,{ margin: "0% 0% -40% 0%" })
+const sequenceMovil = [
+  [container_proyectos,{ opacity: [0, 100] },
+  {
+    duration: 0.1,
+    at: 0.1
+  }],
+  ['#titulo_proyectos > *',{ opacity: [0, 100], y:[500, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.2
+  }],
+  ['.slide_img',{ opacity: [0, 100], x:[-500, 0] },
+  {
+    duration: 1.5,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.1
+  }],
+  ['.container_texto > h3',{ opacity: [0, 100], y:[-300, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.3
+  }],
+  ['.container_texto_parrafo > p',{ opacity: [0, 100], x:[500, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.4
+  }],
+  ['.container_texto > div > a',{ opacity: [0, 100], y:[-500, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.5
+  }],
+
+]
+if (window.innerWidth >= 768) {
+  inView(container_proyectos, ()=> {timeline(sequence)} ,{ margin: "0% 0% -40% 0%" })
+}
+else{
+  inView(container_proyectos, ()=> {timeline(sequenceMovil)} ,{ margin: "0% 0% -50% 0%" })
+}
 </script>
