@@ -1,81 +1,33 @@
 ---
-import foto2 from "/img/fotos_monte/monte2.webp";
-import foto from "/img/fotos_monte/monte.webp";
+import foto from "/img/fotos_monte/monte2.webp";
+import foto2 from "/img/fotos_monte/monte.webp";
 ---
 
 <div
   class="container container_sobre_mi min-h-screen max-h-[1400px] sm:py-28 pt-16 relative grid place-items-center"
 >
-  <!-- <div
-    class="caja_principal sm:pb-0 dark:before:bg-light-dark before:bg-dark relative z-20 w-full lg:h-auto h-fit flex lg:flex-row flex-col lg:items-center"
-  >
-    <div class="self-start lg:aspect-auto aspect-square w-full lg:w-6/12 lg:min-h-[100%] h-auto object-cover bg-green relative z-30">
-      <img
-        class=""
-        src={foto}
-        alt="Foto de Matias Gomez"
-      />
-    </div>
-    <div
-      class="lg:w-6/12 relative lg:px-10 md:px-8 sm:px-6 px-4 lg:py-12 md:py-9 sm:py-7 pt-6 pb-10 z-20 h-auto flex items-start flex-col xl:gap-6 sm:gap-7 gap-3 [&>p]:dark:text-dark-light [&>p]:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm [&>p]:font-light"
-    >
-      <h2
-        class="titulo 2xl:text-8xl xl:text-6xl lg:text-5xl sm:text-4xl text-4xl font-bold text-center dark:text-dark text-light relative z-20 leading-none"
-      >
-        Holaaa...
-      </h2>
-      <p>
-        Soy Matías, un estudiante autodidacta que acaba de comenzar en este
-        hermoso ambiente del diseño web. Mi experiencia profesional comenzó hace
-        varios años, siendo Ayudante de Cocina mi primer trabajo en los veranos
-        de la secundaria, para luego pasar a ser Recepcionista en un servicio
-        técnico de celulares, y últimamente, un Diseñador Web Freelancer.
-      </p>
-      <p>
-        Durante todos estos años, he aprendido a trabajar coordinadamente con
-        grandes grupos de personas, a comunicarme de manera efectiva y a ser más
-        organizado para hacer frente a las nuevas responsabilidades que iban
-        surgiendo. Debido a mi paso por una secundaria técnica (Electrónica),
-        descubrí el desarrollo de software, aunque más tarde el diseño web fue
-        el que me terminó de convencer de que debía dedicarme a la programación.
-      </p>
-      <p>
-        Gracias a todo esto, actualmente me encuentro estudiando para
-        convertirme en Desarrollador Web Frontend. Mi experiencia incluye el
-        diseño de páginas web simples, creando prototipos en Figma y luego
-        llevándolos a código utilizando Astro JS y Tailwind CSS.
-      </p>
-      <p>
-        Además, hace poco tiempo comencé a utilizar WordPress para tener en mi
-        repertorio la habilidad de crear Tiendas Virtuales.
-      </p>
-       <a
-        href="#banner_trabajos"
-        class="lg:text-xl md:text-lg sm:text-base text-sm gap-1 items-center w-fit text-dark dark:text-light dark:bg-dark bg-light px-6 py-3 md:px-12 lg:px-14 md:py-3 xl:px-14 xl:py-4 sm:border-none border border-dark"
-        >Mis Proyectos
-      </a>
-    </div>
-  </div> -->
   <div
-    class="caja_principal p-0 dark:bg-gradient-to-tr bg-gradient-to-r dark:from-dark-light/20 dark:via-dark  dark:to-dark-light/20 from-grey via-light-dark to-light relative z-20 w-full flex lg:flex-row flex-col lg:items-center"
+    class="caja_principal p-0 dark:bg-gradient-to-tr bg-gradient-to-r dark:from-dark-light/20 dark:via-dark dark:to-dark-light/20 from-grey via-light-dark to-light w-full flex lg:flex-row flex-col lg:items-center"
   >
-    <div class="self-start w-full lg:w-6/12 z-30 relative overflow-hidden">
+    <div
+      class="caja_fotos self-start w-full transi lg:w-6/12 lg:h-[100vmin] relative overflow-hidden"
+    >
       <img
-        class="hover:opacity-0 hover:transition-opacity hover:brightness-200 z-30 lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
+        class="first_img z-30 absolute lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
         src={foto2}
         alt="Foto de Matias Gomez"
-      />
+      /> 
       <img
-        class="absolute top-0 left-0 z-20 hover:opacity-0 hover:brightness-200 lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
+        class="relative top-0 opacity-100 left-0 z-20 lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
         src={foto}
         alt="Foto de Matias Gomez"
       />
     </div>
     <div
-      class="lg:w-6/12 relative lg:mx-10 md:mx-8 sm:mx-6 mx-4 lg:my-12 md:my-9 sm:my-7 mt-6 mb-10 z-3 h-fit flex items-start flex-col xl:gap-6 sm:gap-7 gap-3 [&>p]:dark:text-light-dark [&>p]:text-dark-light [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm [&>p]:font-light"
+      class="lg:w-6/12 relative lg:mx-10 md:mx-8 sm:mx-6 mx-4 lg:my-12 md:my-9 sm:my-7 mt-6 mb-10 z-3 h-fit flex items-start flex-col xl:gap-6 sm:gap-7 gap-3 [&>p]:dark:text-light-dark [&>p]:text-dark-light [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm [&>p]:font-light container_texto_sobre_mi"
     >
       <h2
-        class="titulo 2xl:text-8xl lg:text-6xl sm:text-5xl text-4xl font-bold text-center dark:text-light text-dark py-4 relative z-20 leading-none"
+        class="titulo titulo_sobre_mi 2xl:text-8xl lg:text-6xl sm:text-5xl text-4xl font-bold text-center dark:text-light text-dark py-4 relative z-20 leading-none"
       >
         Holaaa...
       </h2>
@@ -120,8 +72,127 @@ import foto from "/img/fotos_monte/monte.webp";
       padding-right: 0 !important;
     }
   }
+  .first_img {
+    clip-path: circle(150% at 0 0);
+    transition: clip-path 2s cubic-bezier(0.5, 0.24, 0, 1);
+  }
+  .caja_fotos:hover > .first_img {
+    clip-path: circle(0% at 0 0);
+  }
+  /* @keyframes ocultarFoto {
+    from{
+      clip-path: circle(150% at 0 0);
+    }
+    to{
+      clip-path: circle(0% at 0 0);
+    }
+  } */
 </style>
 
 <script>
   import { animate, inView, stagger, scroll, timeline } from "motion";
+  const container_sobre_mi = document.querySelectorAll(".container_sobre_mi");
+  container_sobre_mi[0].style.opacity = 0;
+  let titulo_sobre_mi = document.querySelector(".titulo_sobre_mi");
+  titulo_sobre_mi.innerHTML = titulo_sobre_mi.textContent.replace(
+    /\S/g,
+    "<span class='letras_titulo_sobre_mi'>$&</span>"
+  );
+  let letras_titulo_sobre_mi = document.querySelectorAll(
+    ".letras_titulo_sobre_mi"
+  );
+
+  const caja_fotos = document.querySelector(".caja_fotos");
+  console.log(caja_fotos);
+  const first_img = document.querySelector(".first_img");
+
+  // let hoverContador = 0;
+  // let direction;
+  // let animationState;
+  // const animation = animate(
+  //   first_img,
+  //   { clipPath: ["circle(150% at 0 0)", "circle(0% at 0 0)"] },
+  //   {
+  //     duration: 3,
+  //     easing: [0.5, 0.24, 0, 1],
+  //   }
+  // );
+  // const hoverImagenSobreMi = (e) => {
+  //   // e.type === 'mouseleave' ? direction = 'normal': null;
+  //   // e.type === 'mouseenter' ? direction = 'alternate': null;
+  //   // hoverContador === 1 ? hoverContador = 0 : hoverContador = 1;
+  //   // hoverContador === 1 ? direction = 'reverse': null;
+  //   // hoverContador === 2 ? direction = 'normal': null;
+  //   if (animationState === 1) return;
+  //   if (e.type === "mouseenter") {
+  //     animationState = 1;
+  //     animation.play();
+  //     animation.finished.then(() => animationState = 0);
+  //   }
+  //   // if(e.type === 'mouseleave'){
+  //   //   animation.cancel();
+  //   //   animation.reverse();
+  //   //   animation.finished.then(()=> animationState = 0);
+  //   //   // animation.direction
+  //   //   // animation.play();
+  //   //   // animation.play();
+  //   // }
+  // };
+
+  // caja_fotos.addEventListener("mouseleave", hoverImagenSobreMi);
+  // caja_fotos.addEventListener("mouseenter", hoverImagenSobreMi);
+
+  const sequence = [
+    [
+      container_sobre_mi,
+      { opacity: [0, 100] },
+      {
+        duration: 1,
+        at: 0.1,
+      },
+    ],
+    // [
+    //   ".caja_fotos > img",
+    //   {
+    //     opacity: [0, 100],
+    //     clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
+    //   },
+    //   {
+    //     duration: 1.7,
+    //     easing: [0.5, 0.24, 0, 1],
+    //     delay: stagger(0.2),
+    //     at: 0.2,
+    //   },
+    // ],
+    [
+      letras_titulo_sobre_mi,
+      { opacity: [0, 100] },
+      {
+        duration: 2,
+        easing: [0.5, 0.24, 0, 1],
+        delay: stagger(0.1),
+        at: 0.3,
+      },
+    ],
+    [
+      ".container_texto_sobre_mi> p",
+      { opacity: [0, 100], x: [100, 0] },
+      {
+        duration: 2,
+        easing: [0.5, 0.24, 0, 1],
+        delay: stagger(0.3),
+        at: 0.4,
+      },
+    ],
+  ];
+  inView(
+    container_sobre_mi,
+    () => {
+      timeline(sequence);
+    },
+    { margin: "0% 0% -30% 0%" }
+  );
+  // else{
+  //   inView(container_proyectos, ()=> {timeline(sequenceMovil)} ,{ margin: "0% 0% -50% 0%" })
+  // }
 </script>

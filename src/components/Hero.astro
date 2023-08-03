@@ -12,17 +12,17 @@
       Nuevo Diseñador <br />Nuevas Ideas
     </h1>
     <div
-      class="caja_botones_hero w-full flex sm:gap-10 sm:justify-center justify-between relative z-20 [&>a]:px-6 [&>a]:py-4 [&>a]:sm:px-8 [&>a]:sm:py-5 [&>a]:md:px-12 [&>a]:md:py-5 [&>a]:lg:px-14 [&>a]:lg:py-6 [&>a]:xl:px-16 [&>a]:xl:py-7"
+      class="caja_botones_hero w-full flex sm:gap-10 sm:justify-center justify-between relative z-20 [&>a]:px-6 [&>a]:py-3 [&>a]:sm:px-8 [&>a]:sm:py-5 [&>a]:md:px-12 [&>a]:md:py-5 [&>a]:lg:px-14 [&>a]:lg:py-6 [&>a]:xl:px-16 [&>a]:xl:py-7"
     >
       <a
         id="mis_proyectos"
         href="#proyectos"
-        class="link_interno btn-16 inline-block relative dark:after:bg-dark after:bg-light dark:hover:text-light hover:text-dark dark:bg-light bg-dark text-light dark:text-dark shadow-lg md:text-xl sm:text-lg text-base gap-1 items-center w-fit leading-loose"
+        class="link_interno btn-16 inline-block relative dark:after:bg-dark after:bg-light dark:hover:text-light hover:text-dark dark:bg-light bg-dark text-light dark:text-dark shadow-lg md:text-xl sm:text-lg text-base gap-1 items-center w-fit leading-[2.5]"
         >Mis Proyectos
       </a>
       <a
         href="#sobre_mi"
-        class="link_interno btn6 inline-block dark:after:bg-light-dark after:bg-dark-light leading-loose dark:before:bg-light-dark before:bg-dark-light hover:dark:border-l-light-dark hover:border-l-dark-light hover:dark:border-r-light-dark hover:border-r-dark-light dark:text-light text-dark relative md:text-xl sm:text-lg text-base gap-1 items-center w-fit"
+        class="link_interno btn6 inline-block dark:after:bg-light-dark after:bg-dark-light dark:before:bg-light-dark before:bg-dark-light hover:dark:border-l-light-dark hover:border-l-dark-light hover:dark:border-r-light-dark hover:border-r-dark-light dark:text-light text-dark relative md:text-xl leading-[2.5] sm:text-lg text-base gap-1 items-center w-fit"
         >Sobre Mi
       </a>
     </div>
@@ -30,47 +30,39 @@
 </div>
 
 <script>
-  import { animate, stagger } from "motion";
-  let titulo = document.getElementById("titulo");
-  titulo.innerHTML = titulo.textContent.replace(
-    /\S/g,
-    "<span class='letter'>$&</span>"
-  );
-  let spans = document.querySelectorAll(".letter");
+  // import { animate, stagger } from "motion";
+  // let titulo = document.getElementById("titulo");
+  // titulo.innerHTML = titulo.textContent.replace(
+  //   /\S/g,
+  //   "<span class='letter'>$&</span>"
+  // );
+  // let spans = document.querySelectorAll(".letter");
 
-  animate(
-    spans,
-    { opacity: [0, 1] },
-    {
-      duration: 2.5,
-      delay: stagger(0.06),
-      easing: [0.5, 0.24, 0, 1],
-    }
-  );
-  animate(
-    ".caja_botones_hero > a",
-    { y: [300, 0], opacity: [0, 100] },
-    {
-      duration: 2.5,
-      easing: [0.5, 0.24, 0, 1],
-      delay: stagger(0.4),
-    }
-  );
-  animate(
-    "#titulo",
-    { x: [-200, 0] },
-    {
-      duration: 2.5,
-      easing: [0.5, 0.24, 0, 1],
-    }
-  );
+  // animate(
+  //   spans,
+  //   { opacity: [0, 1] },
+  //   {
+  //     duration: 2.5,
+  //     delay: stagger(0.06),
+  //     easing: [0.5, 0.24, 0, 1],
+  //   }
+  // );
+  // animate(
+  //   ".caja_botones_hero > a",
+  //   { y: [300, 0], opacity: [0, 100] },
+  //   {
+  //     duration: 2.5,
+  //     easing: [0.5, 0.24, 0, 1],
+  //     delay: stagger(0.4),
+  //   }
+  // );
+  // animate(
+  //   "#titulo",
+  //   { x: [-200, 0] },
+  //   {
+  //     duration: 2.5,
+  //     easing: [0.5, 0.24, 0, 1],
+  //   }
+  // );
 
-  const botonesInternos = document.querySelectorAll(".link_interno");
-  botonesInternos.forEach((boton) => {
-    boton.addEventListener("click", (e) => {
-      e.preventDefault();
-      let seccion = document.querySelector(e.target.getAttribute("href"));
-      window.scrollTo(0, seccion.offsetTop);
-    });
-  });
 </script>
