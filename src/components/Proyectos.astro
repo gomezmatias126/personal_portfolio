@@ -45,7 +45,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
               <div class="container_texto_parrafo text-dark-light dark:text-light-dark text-base font-light [&>*]:select-none">
                 <slot set:html={proyecto.compiledContent()}>
               </div>
-              <div class="flex sm:gap-6 gap-4">
+              <div class="container_links flex sm:gap-6 gap-4">
                 <a target="_blank"
                   class="sm:text-lg text-sm flex sm:gap-2 gap-1 items-center w-fit btn-16 relative dark:after:bg-dark after:bg-light dark:hover:text-light hover:text-dark dark:bg-light bg-dark text-light dark:text-dark dark:[&>svg]:hover:invert [&>svg]:hover:invert-0 px-4 py-2 md:px-9 lg:px-5 xl:px-6 2xl:px-7 sm:border-none border border-dark font-medium"
                   href={proyecto.frontmatter.urls.pagina}
@@ -74,7 +74,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 
 <style>
   #swipe_señal > svg{
-    animation: 900ms ease-in-out 5s infinite alternate swipe_animation;
+    animation: 900ms cubic-bezier(0.83, 0, 0.17, 1) 4s infinite alternate swipe_animation;
   }
   @keyframes swipe_animation {
     from {
@@ -198,9 +198,9 @@ container_proyectos[0].style.opacity = 0;
 const sliders = document.querySelectorAll(".slide");
 if (window.innerWidth >= 768) {
   sliders.forEach((item) => {  
-    scroll(animate(item.firstElementChild, { opacity: [0, 1, 1, 0], scale: [0.6, 1, 1, 0.6]}, {
-      // allowWebkitAcceleration: true,
-      easing: [.5, .24, 0, 1],
+    scroll(animate(item.firstElementChild, { opacity: [0, 1, 1, 0], transform: ["scale(0.3)","scale(1)","scale(1)","scale(0.3)"]}, {
+      allowWebkitAcceleration: true,
+      easing: [0.83, 0, 0.17, 1],
     }), {
       target: item.firstElementChild,
       offset: ["end start", "start end"],
@@ -214,41 +214,41 @@ if (window.innerWidth >= 768) {
 const sequence = [
   [container_proyectos,{ opacity: [0, 100] },
   {
-    duration: 0.1,
+    duration: 1.3,
     at: 0.1
   }],
-  ['#titulo_proyectos > *',{ opacity: [0, 100], y:[500, 0] },
+  ['#titulo_proyectos > *',{ opacity: [0, 100], transform: ["translateY(500px)", "translateY(0px)"]   },
   {
     duration: 2,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.2
   }],
-  ['.slide_img',{ opacity: [0, 100], scale: [0.3, 1], x:[-500, 0] },
+  ['.slide_img',{ opacity: [0, 100], transform: ["translateX(200px) translateY(-200px) scale(0)", "translateX(0px) translateY(0px) scale(1)"] },
   {
     duration: 1.5,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.1
   }],
-  ['.container_texto > h3',{ opacity: [0, 100], x:[500, 0], y:[-300, 0] },
+  ['.container_texto > h3',{ opacity: [0, 100], transform: ["translateX(200px) translateY(-200px)", "translateX(0px) translateY(0px)"] },
   {
     duration: 2,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.3
   }],
-  ['.container_texto_parrafo > p',{ opacity: [0, 100], x:[500, 0], y:[300, 0] },
+  ['.container_texto_parrafo > p',{ opacity: [0, 100], transform: ["translateX(200px) translateY(200px)", "translateX(0px) translateY(0px)"] },
   {
     duration: 2,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.4
   }],
-  ['.container_texto > div > a',{ opacity: [0, 100], y:[-500, 0] },
+  ['.container_links > a',{ opacity: [0, 100], transform: ["translateY(200px)", "translateY(0px)"] },
   {
     duration: 2,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.5
   }],
@@ -257,54 +257,54 @@ const sequence = [
 const sequenceMovil = [
   [container_proyectos,{ opacity: [0, 100] },
   {
+    duration: 1.3,
+    at: 0.1
+  }],
+  ['#titulo_proyectos > *',{ opacity: [0, 100], transform: ["translateY(100px)", "translateY(0px)"] },
+  {
+    duration: 2,
+    easing: [0.83, 0, 0.17, 1],
+    delay: stagger(0.2),
+    at: 0.2
+  }],
+  ['#swipe_señal',{ opacity: [0, 100], transform: ["translateY(100px)", "translateY(0px)"] },
+  {
+    duration: 2,
+    easing: [0.83, 0, 0.17, 1],
+    delay: stagger(0.2),
+    at: 0.2
+  }],
+  ['.slide_img',{ opacity: [0, 100], transform: ["translateY(100px)", "translateY(0px)"] },
+  {
     duration: 1,
-    at: 0.1
+    easing: [0.83, 0, 0.17, 1],
+    at: 0.01
   }],
-  ['#titulo_proyectos > *',{ opacity: [0, 100], y:[300, 0] },
+  ['.container_texto > h3',{ opacity: [0, 100], transform: ["translateY(100px)", "translateY(0px)"] },
   {
     duration: 2,
-    easing: [.5, .24, 0, 1],
-    delay: stagger(0.2),
-    at: 0.2
-  }],
-  ['#swipe_señal',{ opacity: [0, 100], y:[300, 0] },
-  {
-    duration: 2,
-    easing: [.5, .24, 0, 1],
-    delay: stagger(0.2),
-    at: 0.2
-  }],
-  ['.slide_img',{ opacity: [0, 100], y:[100, 0] },
-  {
-    duration: 3,
-    easing: [.5, .24, 0, 1],
-    at: 0.1
-  }],
-  ['.container_texto > h3',{ opacity: [0, 100], y:[300, 0] },
-  {
-    duration: 2,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.3
   }],
-  ['.container_texto_parrafo > p',{ opacity: [0, 100], y:[400, 0] },
+  ['.container_texto_parrafo > p',{ opacity: [0, 100]},
   {
     duration: 2,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.4
   }],
-  ['.container_texto > div > a',{ opacity: [0, 100], y:[300, 0] },
+  ['.container_links > a',{ opacity: [0, 100], transform: ["translateY(-100px)", "translateY(0px)"] },
   {
     duration: 2,
-    easing: [.5, .24, 0, 1],
+    easing: [0.83, 0, 0.17, 1],
     delay: stagger(0.2),
     at: 0.5
   }],
 
 ]
 if (window.innerWidth >= 768) {
-  inView(container_proyectos, ()=> {timeline(sequence)} ,{ margin: "0% 0% -40% 0%" })
+  inView(container_proyectos, ()=> {timeline(sequence)} ,{ margin: "0% 0% -10% 0%" })
 }
 else{
   inView(container_proyectos, ()=> {timeline(sequenceMovil)} ,{ margin: "0% 0% -10% 0%" })

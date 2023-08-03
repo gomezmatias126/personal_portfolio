@@ -5,12 +5,12 @@ import github_icon from "/img/github_icon.svg";
 import linkedin_icon from "/img/linkedin_icon.svg";
 ---
 
-<div class="container min-h-screen py-28 font-light flex items-center">
+<div class="container container_contacto min-h-screen py-28 font-light flex items-center">
   <div
     class="w-full h-fit flex lg:flex-row flex-col lg:gap-3 sm:gap-16 gap-14 items-center justify-center"
   >
     <article class="flex flex-col items-center sm:gap-12 gap-6">
-      <div>
+      <div class="container_contacto_texto">
         <h2
           class="titulo 2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold text-dark dark:text-light relative z-20 sm:text-center text-start"
         >
@@ -21,16 +21,16 @@ import linkedin_icon from "/img/linkedin_icon.svg";
         </p>
       </div>
       <div
-        class="grid grid-flow-row-dense sm:grid-cols-5 grid-cols-6 grid-rows-4 sm:gap-6 gap-4 [&>img]:col-span-1 sm:[&>a]:col-span-4 [&>a]:col-span-5 [&>img]:w-auto [&>a]:w-auto [&>img]:h-15 [&>img]:brightness-0 [&>img]:dark:invert [&>img]:justify-self-center [&>img]:opacity-70 [&>img]:my-auto [&>a]:flex [&>a]:items-center [&>a]:dark:text-light-dark [&>a]:text-dark-light md:[&>a]:text-lg sm:[&>a]:text-base [&>a]:text-sm dark:hover:[&>a]:text-light hover:[&>a]:text-dark"
+        class="container_links_contacto grid grid-flow-row-dense sm:grid-cols-5 grid-cols-6 grid-rows-4 sm:gap-6 gap-4 [&>img]:col-span-1 sm:[&>a]:col-span-4 [&>a]:col-span-5 [&>img]:w-auto [&>a]:w-auto [&>img]:h-15 [&>img]:brightness-0 [&>img]:dark:invert [&>img]:justify-self-center [&>img]:opacity-70 [&>img]:my-auto [&>a]:flex [&>a]:items-center [&>a]:dark:text-light-dark [&>a]:text-dark-light md:[&>a]:text-lg sm:[&>a]:text-base [&>a]:text-sm"
       >
-        <img class="icon_contacto" src={email_icon} alt="" />
-        <a class="link_contacto" href="mailto:gomezmatias126@gmail.com" target="_blank">gomezmatias126@gmail.com</a>
-        <img class="icon_contacto" src={linkedin_icon} alt="" />
-        <a class="link_contacto" href="https://www.linkedin.com/in/gomezmatias126/" target="_blank">linkedin.com/in/gomezmatias126</a>
-        <img class="icon_contacto" src={github_icon} alt="" />
-        <a class="link_contacto" href="https://github.com/gomezmatias126" target="_blank">github.com/gomezmatias126</a>
-        <img class="icon_contacto" src={figma_icon} alt="" />
-        <a class="link_contacto" href="https://www.figma.com/@gomezmatias126" target="_blank">figma.com/@gomezmatias126</a>
+        <img class="icon_contacto icono_1" src={email_icon} alt="" />
+        <a class="link_contacto icono_1" href="mailto:gomezmatias126@gmail.com" target="_blank">gomezmatias126@gmail.com</a>
+        <img class="icon_contacto icono_2" src={linkedin_icon} alt="" />
+        <a class="link_contacto icono_2" href="https://www.linkedin.com/in/gomezmatias126/" target="_blank">linkedin.com/in/gomezmatias126</a>
+        <img class="icon_contacto icono_3" src={github_icon} alt="" />
+        <a class="link_contacto icono_3" href="https://github.com/gomezmatias126" target="_blank">github.com/gomezmatias126</a>
+        <img class="icon_contacto icono_4" src={figma_icon} alt="" />
+        <a class="link_contacto icono_4" href="https://www.figma.com/@gomezmatias126" target="_blank">figma.com/@gomezmatias126</a>
       </div>
     </article>
   </div>
@@ -75,3 +75,68 @@ import linkedin_icon from "/img/linkedin_icon.svg";
     visibility: visible;
   }
 </style>
+
+<script>
+  import { animate, inView, stagger, scroll, timeline } from "motion";
+  const container_contacto = document.querySelector(".container_contacto");
+  container_contacto.style.opacity = 0;
+  let titulo_contacto = document.querySelector(".container_contacto_texto > h2");
+  titulo_contacto.innerHTML = titulo_contacto.textContent.replace(
+    /\S/g,
+    "<span class='inline-block letras_titulo_contacto'>$&</span>"
+  );
+  let letras_titulo_contacto = document.querySelectorAll(
+    ".letras_titulo_contacto"
+  );
+
+  const sequence = [
+    [
+      container_contacto,
+      { opacity: [0, 100] },
+      {
+        duration: 2,
+        at: 0.1,
+      },
+    ],
+    [
+      ".container_links_contacto > *",
+      {
+        opacity: [0, 100],
+        clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
+        transform: ["translateY(50px)", "translateY(0px)"]
+      },
+      {
+        duration: 1.7,
+        easing: [.83,0,.17,1],
+        delay: stagger(0.2),
+        at: 0.2,
+      },
+    ],
+    [
+      Array.from(letras_titulo_contacto),
+      { opacity: [0, 100], transform: ["translateY(30px)", "translateY(0px)"] },
+      {
+        duration: 1,
+        easing: [.83,0,.17,1],
+        delay: stagger(0.2),
+        at: 0.3,
+      },
+    ],
+    [
+      ".container_contacto_texto > p",
+      { opacity: [0, 100]},
+      {
+        duration: 3,
+        easing: [.83,0,.17,1],
+        at: 0.4,
+      },
+    ],
+  ];
+  inView(
+    container_contacto,
+    () => {
+      timeline(sequence);
+    },
+    { margin: "0% 0% -30% 0%" }
+  );
+</script>

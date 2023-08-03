@@ -30,39 +30,39 @@
 </div>
 
 <script>
-  // import { animate, stagger } from "motion";
-  // let titulo = document.getElementById("titulo");
-  // titulo.innerHTML = titulo.textContent.replace(
-  //   /\S/g,
-  //   "<span class='letter'>$&</span>"
-  // );
-  // let spans = document.querySelectorAll(".letter");
+  import { animate, stagger } from "motion";
+  let titulo = document.getElementById("titulo");
+  titulo.innerHTML = titulo.textContent.replace(
+    /\S/g,
+    "<span class='letter'>$&</span>"
+  );
+  let spans = document.querySelectorAll(".letter");
 
-  // animate(
-  //   spans,
-  //   { opacity: [0, 1] },
-  //   {
-  //     duration: 2.5,
-  //     delay: stagger(0.06),
-  //     easing: [0.5, 0.24, 0, 1],
-  //   }
-  // );
-  // animate(
-  //   ".caja_botones_hero > a",
-  //   { y: [300, 0], opacity: [0, 100] },
-  //   {
-  //     duration: 2.5,
-  //     easing: [0.5, 0.24, 0, 1],
-  //     delay: stagger(0.4),
-  //   }
-  // );
-  // animate(
-  //   "#titulo",
-  //   { x: [-200, 0] },
-  //   {
-  //     duration: 2.5,
-  //     easing: [0.5, 0.24, 0, 1],
-  //   }
-  // );
+  animate(
+    spans,
+    { opacity: [0, 1] },
+    {
+      duration: 2.5,
+      delay: stagger(0.06),
+      easing: [0.83, 0, 0.17, 1],
+    }
+  );
+  animate(
+    ".caja_botones_hero > a",
+    { y: [300, 0], opacity: [0, 100] },
+    {
+      duration: 2.5,
+      easing: [0.83, 0, 0.17, 1],
+      delay: stagger(0.4),
+    }
+  );
+  animate(
+    "#titulo",
+    { x: [-200, 0] },
+    {
+      duration: 2.5,
+      easing: [0.83, 0, 0.17, 1],
+    }
+  );
 
 </script>

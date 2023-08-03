@@ -10,11 +10,11 @@ import Proyectos from "../components/Proyectos.astro";
 <Layout
   title="Matias Gomez | Diseñador Web"
 >
-  <!-- <span
+   <span
     id="introBgLeft"
     class="dark:bg-dark bg-light w-full h-screen fixed top-0 bottom-0 right-0 left-0 z-[61]"
-  ></span> -->
-  <main class="main relative z-40 w-full">
+  ></span>
+  <main class="main relative z-40 w-full scroll-smooth">
     <section
       id="hero"
       class="xl:snap-center scroll-p-48 overflow-x-hidden w-full"
@@ -47,16 +47,16 @@ import Proyectos from "../components/Proyectos.astro";
       </div>
       <Hero />
     </section>
-    <section id="proyectos" class="xl:snap-center scroll-p-48 sm:py-28 py-48">
+    <section id="proyectos" class="xl:snap-start pb-48 pt-24 mt-28">
       <Proyectos />
     </section>
-    <section id="sobre_mi" class="xl:snap-center scroll-p-0 py-16">
+    <section id="sobre_mi" class="xl:snap-center pb-48">
       <Sobre_mi />
     </section>
-    <section id="mis_habilidades" class="xl:snap-center scroll-p-48 sm:py-28 py-48">
+    <section id="mis_habilidades" class="xl:snap-center pb-48">
       <MisHabilidades />
     </section>
-    <section id="contacto" class="xl:snap-center scroll-p-48 sm:py-28 py-48">
+    <section id="contacto" class="xl:snap-center">
       <Contacto />
     </section>
   </main>
@@ -77,27 +77,27 @@ import Proyectos from "../components/Proyectos.astro";
       window.scrollTo(0, seccion.offsetTop);
     });
   });
-  // import { animate } from "motion";
-  // let introBgLeft = document.getElementById("introBgLeft");
-  // let intro = () => {
-  //   // window.scrollTo(0, 0);
-  //   animate(
-  //     introBgLeft,
-  //     {
-  //       clipPath: [
-  //         "polygon(100% 0, 100% 100%, 100% 100%, 0 100%, 0 0)",
-  //         "polygon(100% 0, 100% 0, 50% 100%, 0 100%, 0 0)",
-  //         "polygon(30% 0, 60% 0, 0 100%, 0 100%, 0 0)",
-  //         "polygon(15% 0, 30% 0, 0 50%, 0 15%, 0 0)",
-  //         "polygon(0 0, 0 0, 0 0, 0 0, 0 0)",
-  //       ]
-  //     },
-  //     {
-  //       duration: 3,
-  //       easing: [.5, .24, 0, 1],
-  //       direction: "normal",
-  //     }
-  //   ).finished.then(()=>{ introBgLeft.style.display = 'none' })
-  // };
-  // intro();
+  import { animate } from "motion";
+  let introBgLeft = document.getElementById("introBgLeft");
+  let intro = () => {
+    // window.scrollTo(0, 0);
+    animate(
+      introBgLeft,
+      {
+        clipPath: [
+          "polygon(100% 0, 100% 100%, 100% 100%, 0 100%, 0 0)",
+          "polygon(100% 0, 100% 0, 50% 100%, 0 100%, 0 0)",
+          "polygon(30% 0, 60% 0, 0 100%, 0 100%, 0 0)",
+          "polygon(15% 0, 30% 0, 0 50%, 0 15%, 0 0)",
+          "polygon(0 0, 0 0, 0 0, 0 0, 0 0)",
+        ]
+      },
+      {
+        duration: 3,
+        easing: [.5, .24, 0, 1],
+        direction: "normal",
+      }
+    ).finished.then(()=>{ introBgLeft.style.display = 'none' })
+  };
+  intro();
 </script>

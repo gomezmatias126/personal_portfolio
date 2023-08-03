@@ -7,18 +7,20 @@ import foto2 from "/img/fotos_monte/monte.webp";
   class="container container_sobre_mi min-h-screen max-h-[1400px] sm:py-28 pt-16 relative grid place-items-center"
 >
   <div
-    class="caja_principal p-0 dark:bg-gradient-to-tr bg-gradient-to-r dark:from-dark-light/20 dark:via-dark dark:to-dark-light/20 from-grey via-light-dark to-light w-full flex lg:flex-row flex-col lg:items-center overflow-x-hidden"
+    class="caja_principal p-0 dark:bg-gradient-to-tr bg-gradient-to-r dark:from-dark-light/20 dark:via-dark dark:to-dark-light/20 from-grey via-light-dark to-light w-full flex lg:flex-row flex-col lg:items-center overflow-hidden"
   >
     <div
-      class="caja_fotos self-start w-full transi lg:w-6/12 lg:h-[100vmin] relative overflow-hidden"
+      id="caja_contenedora_imagenes"
+      class="caja_fotos self-start w-full transi lg:w-6/12 lg:aspect-auto aspect-square lg:h-[100vmin] relative"
     >
       <img
-        class="first_img md:block hidden z-30 absolute lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
+        id="primera_imagen"
+        class="first_img relative z-30 lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
         src={foto2}
         alt="Foto de Matias Gomez"
       /> 
       <img
-        class="relative top-0 opacity-100 left-0 z-20 lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
+        class="absolute top-0 left-0 bottom-0 right-0 z-20 lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
         src={foto}
         alt="Foto de Matias Gomez"
       />
@@ -72,11 +74,10 @@ import foto2 from "/img/fotos_monte/monte.webp";
       padding-right: 0 !important;
     }
   }
-  .first_img {
-    clip-path: circle(150% at 0 0);
-    transition: clip-path 2s cubic-bezier(0.5, 0.24, 0, 1);
+  #primera_imagen{
+    transition: clip-path 2s cubic-bezier(0.83, 0, 0.17, 1);
   }
-  .caja_fotos:hover > .first_img {
+  #caja_contenedora_imagenes:hover > #primera_imagen {
     clip-path: circle(0% at 0 0);
   }
 </style>
@@ -88,7 +89,7 @@ import foto2 from "/img/fotos_monte/monte.webp";
   let titulo_sobre_mi = document.querySelector(".titulo_sobre_mi");
   titulo_sobre_mi.innerHTML = titulo_sobre_mi.textContent.replace(
     /\S/g,
-    "<span class='letras_titulo_sobre_mi'>$&</span>"
+    "<span class='inline-block letras_titulo_sobre_mi'>$&</span>"
   );
   let letras_titulo_sobre_mi = document.querySelectorAll(
     ".letras_titulo_sobre_mi"
@@ -99,7 +100,7 @@ import foto2 from "/img/fotos_monte/monte.webp";
       container_sobre_mi,
       { opacity: [0, 100] },
       {
-        duration: 1,
+        duration: 2,
         at: 0.1,
       },
     ],
@@ -107,31 +108,29 @@ import foto2 from "/img/fotos_monte/monte.webp";
       ".caja_fotos > img",
       {
         opacity: [0, 100],
-        clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
+        clipPath: ["circle(20% at 0 0)", "circle(150% at 0 0)"],
       },
       {
-        duration: 1.7,
-        easing: [0.5, 0.24, 0, 1],
-        delay: stagger(0.2),
+        duration: 2,
         at: 0.2,
       },
     ],
     [
       Array.from(letras_titulo_sobre_mi),
-      { opacity: [0, 100] },
+      { opacity: [0, 100], transform: ["translateY(70px)", "translateY(0px)"] },
       {
-        duration: 3,
-        easing: [0.5, 0.24, 0, 1],
-        delay: stagger(0.2),
+        duration: 2,
+        easing: [0.83, 0, 0.17, 1],
+        delay: stagger(0.1),
         at: 0.3,
       },
     ],
     [
       ".container_texto_sobre_mi> p",
-      { opacity: [0, 100], y: [100, 0] },
+      { opacity: [0, 100] },
       {
         duration: 2,
-        easing: [0.5, 0.24, 0, 1],
+        easing: [0.83, 0, 0.17, 1],
         delay: stagger(0.3),
         at: 0.4,
       },
@@ -142,7 +141,7 @@ import foto2 from "/img/fotos_monte/monte.webp";
     () => {
       timeline(sequence);
     },
-    { margin: "0% 0% -30% 0%" }
+    { margin: "0% 0% -20% 0%" }
   );
   // else{
   //   inView(container_proyectos, ()=> {timeline(sequenceMovil)} ,{ margin: "0% 0% -50% 0%" })

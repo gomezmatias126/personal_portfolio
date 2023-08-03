@@ -98,7 +98,7 @@ let url_images = urls.map((e) => {
       container_mis_habilidades,
       { opacity: [0, 100] },
       {
-        duration: 1,
+        duration: 2,
         at: 0.1,
       },
     ],
@@ -107,11 +107,11 @@ let url_images = urls.map((e) => {
       {
         opacity: [0, 100],
         clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
-        y: [100, 0]
+        transform: ["translateY(100px)", "translateY(0px)"]
       },
       {
         duration: 1.7,
-        easing: "ease-in-out",
+        easing: [.83,0,.17,1],
         delay: stagger(0.2),
         at: 0.2,
       },
@@ -124,27 +124,26 @@ let url_images = urls.map((e) => {
       },
       {
         duration: 2,
-        easing: "ease-in-out",
+        easing: [.83,0,.17,1],
         at: 0.4,
       },
     ],
     [
       Array.from(letras_titulo_habilidades),
-      { opacity: [0, 100], y:[30, 0] },
+      { opacity: [0, 100], transform: ["translateY(30px)", "translateY(0px)"] },
       {
-        duration: 1,
-        easing: "ease-in-out",
+        duration: 1.5,
+        easing: [.83,0,.17,1],
         delay: stagger(0.2),
         at: 0.3,
       },
     ],
     [
       ".container_mis_habilidades_texto > p",
-      { opacity: [0, 100], y: [100, 0] },
+      { opacity: [0, 100]},
       {
-        duration: 2,
-        easing: "ease-in-out",
-        delay: stagger(0.3),
+        duration: 3,
+        easing: [.83,0,.17,1],
         at: 0.4,
       },
     ],
@@ -154,6 +153,6 @@ let url_images = urls.map((e) => {
     () => {
       timeline(sequence);
     },
-    { margin: "0% 0% -30% 0%" }
+    { margin: "0% 0% -5% 0%" }
   );
 </script>
