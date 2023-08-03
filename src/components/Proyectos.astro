@@ -74,7 +74,7 @@ const proyectos = await Astro.glob("../pages/proyectos/*.md");
 
 <style>
   #swipe_señal > svg{
-    animation: 900ms ease-in-out 0s infinite alternate swipe_animation;
+    animation: 900ms ease-in-out 5s infinite alternate swipe_animation;
   }
   @keyframes swipe_animation {
     from {
@@ -257,37 +257,44 @@ const sequence = [
 const sequenceMovil = [
   [container_proyectos,{ opacity: [0, 100] },
   {
-    duration: 0.1,
+    duration: 1,
     at: 0.1
   }],
-  ['#titulo_proyectos > *',{ opacity: [0, 100], y:[500, 0] },
+  ['#titulo_proyectos > *',{ opacity: [0, 100], y:[300, 0] },
   {
     duration: 2,
     easing: [.5, .24, 0, 1],
     delay: stagger(0.2),
     at: 0.2
   }],
-  ['.slide_img',{ opacity: [0, 100], x:[-500, 0] },
+  ['#swipe_señal',{ opacity: [0, 100], y:[300, 0] },
+  {
+    duration: 2,
+    easing: [.5, .24, 0, 1],
+    delay: stagger(0.2),
+    at: 0.2
+  }],
+  ['.slide_img',{ opacity: [0, 100], y:[100, 0] },
   {
     duration: 3,
     easing: [.5, .24, 0, 1],
     at: 0.1
   }],
-  ['.container_texto > h3',{ opacity: [0, 100], y:[-300, 0] },
+  ['.container_texto > h3',{ opacity: [0, 100], y:[300, 0] },
   {
     duration: 2,
     easing: [.5, .24, 0, 1],
     delay: stagger(0.2),
     at: 0.3
   }],
-  ['.container_texto_parrafo > p',{ opacity: [0, 100], x:[500, 0] },
+  ['.container_texto_parrafo > p',{ opacity: [0, 100], y:[400, 0] },
   {
     duration: 2,
     easing: [.5, .24, 0, 1],
     delay: stagger(0.2),
     at: 0.4
   }],
-  ['.container_texto > div > a',{ opacity: [0, 100], y:[-500, 0] },
+  ['.container_texto > div > a',{ opacity: [0, 100], y:[300, 0] },
   {
     duration: 2,
     easing: [.5, .24, 0, 1],
@@ -300,6 +307,6 @@ if (window.innerWidth >= 768) {
   inView(container_proyectos, ()=> {timeline(sequence)} ,{ margin: "0% 0% -40% 0%" })
 }
 else{
-  inView(container_proyectos, ()=> {timeline(sequenceMovil)} ,{ margin: "0% 0% 0% 0%" })
+  inView(container_proyectos, ()=> {timeline(sequenceMovil)} ,{ margin: "0% 0% -10% 0%" })
 }
 </script>

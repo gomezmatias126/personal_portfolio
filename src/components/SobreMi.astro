@@ -79,14 +79,6 @@ import foto2 from "/img/fotos_monte/monte.webp";
   .caja_fotos:hover > .first_img {
     clip-path: circle(0% at 0 0);
   }
-  /* @keyframes ocultarFoto {
-    from{
-      clip-path: circle(150% at 0 0);
-    }
-    to{
-      clip-path: circle(0% at 0 0);
-    }
-  } */
 </style>
 
 <script>
@@ -106,42 +98,6 @@ import foto2 from "/img/fotos_monte/monte.webp";
   console.log(caja_fotos);
   const first_img = document.querySelector(".first_img");
 
-  // let hoverContador = 0;
-  // let direction;
-  // let animationState;
-  // const animation = animate(
-  //   first_img,
-  //   { clipPath: ["circle(150% at 0 0)", "circle(0% at 0 0)"] },
-  //   {
-  //     duration: 3,
-  //     easing: [0.5, 0.24, 0, 1],
-  //   }
-  // );
-  // const hoverImagenSobreMi = (e) => {
-  //   // e.type === 'mouseleave' ? direction = 'normal': null;
-  //   // e.type === 'mouseenter' ? direction = 'alternate': null;
-  //   // hoverContador === 1 ? hoverContador = 0 : hoverContador = 1;
-  //   // hoverContador === 1 ? direction = 'reverse': null;
-  //   // hoverContador === 2 ? direction = 'normal': null;
-  //   if (animationState === 1) return;
-  //   if (e.type === "mouseenter") {
-  //     animationState = 1;
-  //     animation.play();
-  //     animation.finished.then(() => animationState = 0);
-  //   }
-  //   // if(e.type === 'mouseleave'){
-  //   //   animation.cancel();
-  //   //   animation.reverse();
-  //   //   animation.finished.then(()=> animationState = 0);
-  //   //   // animation.direction
-  //   //   // animation.play();
-  //   //   // animation.play();
-  //   // }
-  // };
-
-  // caja_fotos.addEventListener("mouseleave", hoverImagenSobreMi);
-  // caja_fotos.addEventListener("mouseenter", hoverImagenSobreMi);
-
   const sequence = [
     [
       container_sobre_mi,
@@ -151,19 +107,19 @@ import foto2 from "/img/fotos_monte/monte.webp";
         at: 0.1,
       },
     ],
-    // [
-    //   ".caja_fotos > img",
-    //   {
-    //     opacity: [0, 100],
-    //     clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
-    //   },
-    //   {
-    //     duration: 1.7,
-    //     easing: [0.5, 0.24, 0, 1],
-    //     delay: stagger(0.2),
-    //     at: 0.2,
-    //   },
-    // ],
+    [
+      ".caja_fotos > img",
+      {
+        opacity: [0, 100],
+        clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
+      },
+      {
+        duration: 1.7,
+        easing: [0.5, 0.24, 0, 1],
+        delay: stagger(0.2),
+        at: 0.2,
+      },
+    ],
     [
       letras_titulo_sobre_mi,
       { opacity: [0, 100] },
