@@ -22,12 +22,12 @@ let url_images = urls.map((e) => {
 ---
 
 <div
-  class="container min-h-screen max-h-[2500px] relative grid place-items-center py-28"
+  class="container container_mis_habilidades min-h-screen max-h-[2500px] relative grid place-items-center py-28"
 >
   <article
     class="w-full h-fit flex items-center flex-col md:gap-14 gap-10 [&>p]:text-dark-light [&>p]:dark:text-light-dark [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm"
   >
-    <div>
+    <div class="container_mis_habilidades_texto">
       <h2
         class="titulo 2xl:text-8xl xl:text-7xl lg:text-6xl sm:text-6xl text-4xl font-bold text-center text-dark dark:text-light relative z-20"
       >
@@ -45,7 +45,7 @@ let url_images = urls.map((e) => {
       >
         {
           url_images.map((image) => (
-            <figure class="flex flex-col items-center">
+            <figure class="flex flex-col items-center container_img_habilidades">
               <img src={image} alt="" class="" />
               <figcaption class="dark:text-light-dark text-dark-light text-center mt-4">
                 {nombres_tecnologias[url_images.indexOf(image)]}
@@ -56,7 +56,7 @@ let url_images = urls.map((e) => {
       </div>
       <span
         aria-hidden="true"
-        class="md:w-[0.1px] h-auto border border-dashed dark:border-grey border-dark-light opacity-60"
+        class="md:w-[0.1px] linea_divisora h-auto border border-dashed dark:border-grey border-dark-light opacity-60"
       ></span>
       <div class="flex md:flex-col md:justify-between justify-center gap-14">
         <figure class="flex flex-col items-center">
@@ -79,3 +79,81 @@ let url_images = urls.map((e) => {
     </div>
   </article>
 </div>
+
+<script>
+  import { animate, inView, stagger, scroll, timeline } from "motion";
+  const container_mis_habilidades = document.querySelector(".container_mis_habilidades");
+  container_mis_habilidades.style.opacity = 0;
+  let titulo_habilidades = document.querySelector(".container_mis_habilidades_texto > h2");
+  titulo_habilidades.innerHTML = titulo_habilidades.textContent.replace(
+    /\S/g,
+    "<span class='inline-block letras_titulo_habilidades'>$&</span>"
+  );
+  let letras_titulo_habilidades = document.querySelectorAll(
+    ".letras_titulo_habilidades"
+  );
+
+  const sequence = [
+    [
+      container_mis_habilidades,
+      { opacity: [0, 100] },
+      {
+        duration: 1,
+        at: 0.1,
+      },
+    ],
+    [
+      "figure",
+      {
+        opacity: [0, 100],
+        clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
+        y: [100, 0]
+      },
+      {
+        duration: 1.7,
+        easing: "ease-in-out",
+        delay: stagger(0.2),
+        at: 0.2,
+      },
+    ],
+    [
+      ".linea_divisora",
+      {
+        opacity: [0, 70],
+        clipPath: ["circle(50% at 0 0)", "circle(150% at 0 0)"],
+      },
+      {
+        duration: 2,
+        easing: "ease-in-out",
+        at: 0.4,
+      },
+    ],
+    [
+      Array.from(letras_titulo_habilidades),
+      { opacity: [0, 100], y:[30, 0] },
+      {
+        duration: 1,
+        easing: "ease-in-out",
+        delay: stagger(0.2),
+        at: 0.3,
+      },
+    ],
+    [
+      ".container_mis_habilidades_texto > p",
+      { opacity: [0, 100], y: [100, 0] },
+      {
+        duration: 2,
+        easing: "ease-in-out",
+        delay: stagger(0.3),
+        at: 0.4,
+      },
+    ],
+  ];
+  inView(
+    container_mis_habilidades,
+    () => {
+      timeline(sequence);
+    },
+    { margin: "0% 0% -30% 0%" }
+  );
+</script>
