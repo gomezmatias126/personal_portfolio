@@ -7,13 +7,13 @@ import foto2 from "/img/fotos_monte/monte.webp";
   class="container container_sobre_mi min-h-screen max-h-[1400px] sm:py-28 pt-16 relative grid place-items-center"
 >
   <div
-    class="caja_principal p-0 dark:bg-gradient-to-tr bg-gradient-to-r dark:from-dark-light/20 dark:via-dark dark:to-dark-light/20 from-grey via-light-dark to-light w-full flex lg:flex-row flex-col lg:items-center"
+    class="caja_principal p-0 dark:bg-gradient-to-tr bg-gradient-to-r dark:from-dark-light/20 dark:via-dark dark:to-dark-light/20 from-grey via-light-dark to-light w-full flex lg:flex-row flex-col lg:items-center overflow-x-hidden"
   >
     <div
       class="caja_fotos self-start w-full transi lg:w-6/12 lg:h-[100vmin] relative overflow-hidden"
     >
       <img
-        class="first_img z-30 absolute lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
+        class="first_img md:block hidden z-30 absolute lg:w-auto w-full object-cover lg:h-[100dvb] lg:aspect-auto aspect-square"
         src={foto2}
         alt="Foto de Matias Gomez"
       /> 
@@ -27,7 +27,7 @@ import foto2 from "/img/fotos_monte/monte.webp";
       class="lg:w-6/12 relative lg:mx-10 md:mx-8 sm:mx-6 mx-4 lg:my-12 md:my-9 sm:my-7 mt-6 mb-10 z-3 h-fit flex items-start flex-col xl:gap-6 sm:gap-7 gap-3 [&>p]:dark:text-light-dark [&>p]:text-dark-light [&>p]:xl:text-base [&>p]:md:text-base [&>p]:text-sm [&>p]:font-light container_texto_sobre_mi"
     >
       <h2
-        class="titulo titulo_sobre_mi 2xl:text-8xl lg:text-6xl sm:text-5xl text-4xl font-bold text-center dark:text-light text-dark py-4 relative z-20 leading-none"
+        class="titulo titulo_sobre_mi 2xl:text-8xl lg:text-6xl sm:text-5xl text-4xl font-bold text-center dark:text-light text-dark pb-2 pt-1 relative z-20 leading-none"
       >
         Holaaa...
       </h2>
@@ -94,10 +94,6 @@ import foto2 from "/img/fotos_monte/monte.webp";
     ".letras_titulo_sobre_mi"
   );
 
-  const caja_fotos = document.querySelector(".caja_fotos");
-  console.log(caja_fotos);
-  const first_img = document.querySelector(".first_img");
-
   const sequence = [
     [
       container_sobre_mi,
@@ -121,18 +117,18 @@ import foto2 from "/img/fotos_monte/monte.webp";
       },
     ],
     [
-      letras_titulo_sobre_mi,
+      Array.from(letras_titulo_sobre_mi),
       { opacity: [0, 100] },
       {
-        duration: 2,
+        duration: 3,
         easing: [0.5, 0.24, 0, 1],
-        delay: stagger(0.1),
+        delay: stagger(0.2),
         at: 0.3,
       },
     ],
     [
       ".container_texto_sobre_mi> p",
-      { opacity: [0, 100], x: [100, 0] },
+      { opacity: [0, 100], y: [100, 0] },
       {
         duration: 2,
         easing: [0.5, 0.24, 0, 1],
