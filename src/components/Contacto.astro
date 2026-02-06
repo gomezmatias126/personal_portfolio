@@ -3,6 +3,7 @@ import email_icon from "/img/email_icon.svg";
 import figma_icon from "/img/figma_icon.svg";
 import github_icon from "/img/github_icon.svg";
 import linkedin_icon from "/img/linkedin_icon.svg";
+import whatsapp_icon from "/img/whatsapp_icon.svg";
 ---
 
 <div
@@ -28,27 +29,33 @@ import linkedin_icon from "/img/linkedin_icon.svg";
       <div
         class="container_links_contacto grid grid-flow-row-dense sm:grid-cols-5 grid-cols-6 grid-rows-4 sm:gap-6 gap-4 [&>img]:col-span-1 sm:[&>a]:col-span-4 [&>a]:col-span-5 [&>img]:w-auto [&>a]:w-auto [&>img]:h-15 [&>img]:brightness-0 [&>img]:dark:invert [&>img]:justify-self-center [&>img]:opacity-70 [&>img]:my-auto [&>a]:flex [&>a]:items-center [&>a]:dark:text-light-dark [&>a]:text-dark-light md:[&>a]:text-lg sm:[&>a]:text-base [&>a]:text-sm"
       >
-        <img class="icon_contacto icono_1" src={email_icon} alt="" />
+<img class="icon_contacto icono_1" src={whatsapp_icon} alt="" />
         <a
           class="link_contacto icono_1"
+          href="https://wa.me/5493517881327?text=Hola%20Matias,%20me%20gustaria%20hacer%20una%20consulta%20simple" 
+  target="_blank">Consultar por WhatsApp</a
+        >
+        <img class="icon_contacto icono_2" src={email_icon} alt="" />
+        <a
+          class="link_contacto icono_2"
           href="mailto:gomezmatias126@gmail.com"
           target="_blank">gomezmatias126@gmail.com</a
         >
-        <img class="icon_contacto icono_2" src={linkedin_icon} alt="" />
+        <img class="icon_contacto icono_3" src={linkedin_icon} alt="" />
         <a
-          class="link_contacto icono_2"
+          class="link_contacto icono_3"
           href="https://www.linkedin.com/in/gomezmatias126/"
           target="_blank">linkedin.com/in/gomezmatias126</a
         >
-        <img class="icon_contacto icono_3" src={github_icon} alt="" />
+        <img class="icon_contacto icono_4" src={github_icon} alt="" />
         <a
-          class="link_contacto icono_3"
+          class="link_contacto icono_4"
           href="https://github.com/gomezmatias126"
           target="_blank">github.com/gomezmatias126</a
         >
-        <img class="icon_contacto icono_4" src={figma_icon} alt="" />
+        <img class="icon_contacto icono_5" src={figma_icon} alt="" />
         <a
-          class="link_contacto icono_4"
+          class="link_contacto icono_5"
           href="https://www.figma.com/@gomezmatias126"
           target="_blank">figma.com/@gomezmatias126</a
         >
@@ -211,3 +218,4 @@ import linkedin_icon from "/img/linkedin_icon.svg";
     );
   }
 </script>
+
